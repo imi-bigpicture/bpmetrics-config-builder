@@ -1,0 +1,123 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Entity id="5.4.15" name="REMS Entity">
+    <Number>5.4.15</Number>
+    <Name>REMS Entity</Name>
+    <Attributes>
+        <!-- REMS ID (10.1.1) -->
+        <ATTRIBUTE>
+            <Attribute_ID>10.1.1</Attribute_ID>
+            <Name>REMS ID</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>rems_id</Machine_Readable_Field_Name>
+            <Class>Housekeeping</Class>
+            <CMMS_Entity>REMS</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>A unique identifier of the REMS Entity.</Description>
+            <Explanation>Must be unique for every Dataset.</Explanation>
+            <METAFLEX>ObjectType Attribute “alias” AND/OR “accession”</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>
+                    CAVE:
+                    During dataset creation the submitter must use the Object Attribute “alias” to state a unique identifier, however, during the submission process that repository automatically generates a unique accession ID for each submitted CMMS Entity. This accession ID will be automatically injected into the XML file using the xs:attribute “accession” by the repository during the upload process.
+                    Once a accession ID has been generated all references to a given CMMS Entity must use the xs:attribute “accession” and not the xs:attribute “alias”.
+                </Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>MSMdad v.2.0.0: Introduced, reuse of the DAC Entity that has been deleted.</Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- REMS Workflow ID (10.1.2) -->
+        <ATTRIBUTE>
+            <Attribute_ID>10.1.2</Attribute_ID>
+            <Name>REMS Workflow ID</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>WORKFLOW_ID</Machine_Readable_Field_Name>
+            <Class>Housekeeping</Class>
+            <CMMS_Entity>REMS</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>A REMS Workflow ID within REMS.</Description>
+            <Explanation>Used during the submission process to create a catalog item within REMS. This identifies form and DAC. This is configured in REMS before submission and informed to submitter.</Explanation>
+            <METAFLEX>xs:string</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>-</Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>MSMdad v.2.0.0: Introduced</Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- REMS Organisation ID (10.1.3) -->
+        <ATTRIBUTE>
+            <Attribute_ID>10.1.3</Attribute_ID>
+            <Name>REMS Organisation ID</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>ORGANISATION_ID</Machine_Readable_Field_Name>
+            <Class>Housekeeping</Class>
+            <CMMS_Entity>REMS</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>A Organization ID within REMS.</Description>
+            <Explanation>Used during the submission process to create a catalog item within REMS. (This refers to an Organization within REMS and not directly to an organization within bigpicture.)</Explanation>
+            <METAFLEX>xs:string</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>-</Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>MSMdad v.2.0.0: Introduced</Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Dataset REF (10.1.4) -->
+        <ATTRIBUTE>
+            <Attribute_ID>10.1.4</Attribute_ID>
+            <Name>Dataset REF</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>DATASET_REF</Machine_Readable_Field_Name>
+            <Class>Housekeeping</Class>
+            <CMMS_Entity>REMS</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>The ID of the Dataset the REMS entity belongs to.</Description>
+            <Explanation>-</Explanation>
+            <METAFLEX>ReferenceType</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>
+                    CAVEAT:
+                    During dataset creation the xs:attribute “alias” must be used to reference a given CMMS
+                    Entity if the given CMMS Entity has not received an accession ID by the repository yet
+                    (I.e. Non-Complementary Datasets). However, during the submission process the
+                    repository will assign unique accession IDs to every CMMS Entity and internal references
+                    will be updated using the newly generated accession IDs by injecting them into the XML
+                    files.
+                    Once an accession ID has been assigned to a given CMMS Entity the xs:attribute
+                    “accession” must be used to reference the given CMMS Entity. This especially relates to
+                    Complementary Datasets, where only the xs:attribute “accession” must be used (also
+                    during data set creation) when an accession ID exists for a given CMMS Entity.
+                </Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>MSMdad v.0.2.0: Introduced</Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+    </Attributes>
+</Entity>

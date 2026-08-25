@@ -1,0 +1,490 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Entity id="5.4.2" name="Dataset Entity">
+    <Number>5.4.2</Number>
+    <Name>Dataset Entity</Name>
+    <Attributes>
+        <!-- Dataset ID (1.1.1) -->
+        <ATTRIBUTE>
+            <Attribute_ID>1.1.1</Attribute_ID>
+            <Name>Dataset ID</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>dataset_id</Machine_Readable_Field_Name>
+            <Class>Housekeeping</Class>
+            <CMMS_Entity>Dataset</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>A unique identifier, generated automatically during upload of the Dataset.</Description>
+            <Explanation>-</Explanation>
+            <METAFLEX>ObjectType Attribute “alias” AND/OR “accession”</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>
+                    CAVEAT:
+                    During dataset creation the submitter must use the Object Attribute “alias” to state a
+                    unique identifier, however, during the submission process that repository automatically
+                    generates a unique accession ID for each submitted CMMS Entity. This accession ID will
+                    be automatically injected into the XML file using the xs:attribute “accession” by the
+                    repository during the upload process.
+                    Once an accession ID has been generated all references to a given CMMS Entity must use
+                    the xs:attribute “accession” and not the xs:attribute “alias”.
+                </Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.0: -
+                    MSMdad v.0.1.1: -
+                    MSMdad v.0.1.2: MetaFleX Type
+                    MSMdad v1.0.0: none
+                    MSMdad v.2.0.0: none
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Description (1.1.2) -->
+        <ATTRIBUTE>
+            <Attribute_ID>1.1.2</Attribute_ID>
+            <Name>Description</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>DESCRIPTION</Machine_Readable_Field_Name>
+            <Class>Housekeeping</Class>
+            <CMMS_Entity>Dataset</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>
+                A free text description of the Dataset including additional information necessary to fully
+                understand the given Dataset.
+            </Description>
+            <Explanation>-</Explanation>
+            <METAFLEX>xs:string</METAFLEX>
+            <Value_Specification>
+                <NA>allowed</NA>
+                <NA_Value>'N/A’</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>-</Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.0: -
+                    MSMdad v.0.1.1: -
+                    MSMdad v.0.1.2: none
+                    MSMdad v.1.0.0: none
+                    MSMdad v.2.0.0: change of machine-readable name
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Version (1.1.3) -->
+        <ATTRIBUTE>
+            <Attribute_ID>1.1.3</Attribute_ID>
+            <Name>Version</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>VERSION</Machine_Readable_Field_Name>
+            <Class>Housekeeping</Class>
+            <CMMS_Entity>Dataset</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>The current version of the Dataset.</Description>
+            <Explanation>
+                As Datasets may be updated after initial upload, the version field keeps track of the
+                version of a specific Dataset. Default 1.0.0. Uniformly increasing with every update.
+            </Explanation>
+            <METAFLEX>xs:string</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>-</Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.0: -
+                    MSMdad v.0.1.1: -
+                    MSMdad v.0.1.2: none
+                    MSMdad v.1.0.0: none
+                    MSMdad v.2.0.0: change of MetaFleX type, change of machine-readable name
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Complements Datasets (1.1.4) -->
+        <ATTRIBUTE>
+            <Attribute_ID>1.1.4</Attribute_ID>
+            <Name>Complements Datasets</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>complements_datasets</Machine_Readable_Field_Name>
+            <Class>Housekeeping</Class>
+            <CMMS_Entity>Dataset</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>
+                Dataset IDs of datasets which are needed in conjunction to the given dataset in order to
+                make it useful.
+            </Description>
+            <Explanation>
+                Submission should be validated relative to these dataset(s). Used for example if a dataset
+                contains only Annotations, pertaining to Images that exist in another already existing
+                dataset. Submitters should not be able to refer to datasets that they do not have direct
+                access to.
+                NOTE: This means complementary datasets cannot be uploaded “in parallel” with the
+                dataset(s) they complement.
+            </Explanation>
+            <METAFLEX>ReferenceType</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>
+                    CAVEAT:
+                    During dataset creation the xs:attribute “alias” must be used to reference a given CMMS
+                    Entity if the given CMMS Entity has not received an accession ID by the repository yet
+                    (i.e. Non-Complementary Datasets). However, during the submission process the
+                    repository will assign unique accession IDs to every CMMS Entity and internal references
+                    will be updated using the newly generated accession IDs by injecting them into the XML
+                    files.
+                    Once an accession ID has been assigned to a given CMMS Entity the xs:attribute
+                    “accession” must be used to reference the given CMMS Entity. This especially relates to
+                    Complementary Datasets, where only the xs:attribute “accession” must be used (also
+                    during data set creation) when an accession ID exists for a given CMMS Entity.
+                </Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.0: -
+                    MSMdad v.0.1.1: -
+                    MSMdad v.0.1.2: value specification
+                    MSMdad v.1.0.0: none
+                    MSMdad v.2.0.0: none
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Metadata Standard (1.1.5) -->
+        <ATTRIBUTE>
+            <Attribute_ID>1.1.5</Attribute_ID>
+            <Name>Metadata Standard</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>METADATA_STANDARD</Machine_Readable_Field_Name>
+            <Class>Housekeeping</Class>
+            <CMMS_Entity>Dataset</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>The BIGPICTURE metadata standard version of the dataset.</Description>
+            <Explanation>
+                The set of metadata attributes may be subject to modifications, this field identifies the
+                Bigpicture metadata standard version for the dataset.
+            </Explanation>
+            <METAFLEX>xs:string</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>-</Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.0: -
+                    MSMdad v.0.1.1: -
+                    MSMdad v.0.1.2: none
+                    MSMdad v.1.0.0: none
+                    MSMdad v.2.0.0: change of MetaFleX Type, change of machine-readable name
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Dataset Title (1.1.6) -->
+        <ATTRIBUTE>
+            <Attribute_ID>1.1.6</Attribute_ID>
+            <Name>Dataset Title</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>TITLE</Machine_Readable_Field_Name>
+            <Class>Housekeeping</Class>
+            <CMMS_Entity>Dataset</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>The title of the dataset.</Description>
+            <Explanation>-</Explanation>
+            <METAFLEX>xs:string</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>-</Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.2: introduced
+                    MSMdad v.1.0.0: none
+                    MSMdad v.2.0.0: change of machine-readable name
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Dataset Short Name (1.1.7) -->
+        <ATTRIBUTE>
+            <Attribute_ID>1.1.7</Attribute_ID>
+            <Name>Dataset Short Name</Name>
+            <Inclusion_Status_Context>specific [Clinical]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>SHORT_NAME</Machine_Readable_Field_Name>
+            <Class>Housekeeping</Class>
+            <CMMS_Entity>Dataset</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>A short name of the dataset.</Description>
+            <Explanation>
+                We encourage that the short name should not be longer than 8 – 15 characters, and that
+                it should either be memorable or systematic.
+            </Explanation>
+            <METAFLEX>xs:string</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>The length of the short name is restricted to 25 characters.</Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.2: introduced
+                    MSMdad v.1.0.0: none
+                    MSMdad v.2.0.0: change of MetaFleX type, change of machine-readable name, change of
+                    explanation, change of Comment.
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Image Ref (1.1.9) -->
+        <ATTRIBUTE>
+            <Attribute_ID>1.1.9</Attribute_ID>
+            <Name>Image Ref</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>IMAGE_REF</Machine_Readable_Field_Name>
+            <Class>Housekeeping</Class>
+            <CMMS_Entity>Dataset</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>A unique identifier of an Image that is contained within the dataset.</Description>
+            <Explanation>
+                This attribute can occur multiple times if more than one Image is present within the
+                dataset.
+            </Explanation>
+            <METAFLEX>ReferenceType</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>
+                    CAVEAT:
+                    During dataset creation the xs:attribute “alias” must be used to reference a given CMMS
+                    Entity if the given CMMS Entity has not received an accession ID by the repository yet
+                    (I.e. Non-Complementary Datasets). However, during the submission process the
+                    repository will assign unique accession IDs to every CMMS Entity and internal references
+                    will be updated using the newly generated accession IDs by injecting them into the XML
+                    files.
+                    Once an accession ID has been assigned to a given CMMS Entity the xs:attribute
+                    “accession” must be used to reference the given CMMS Entity. This especially relates to
+                    Complementary Datasets, where only the xs:attribute “accession” must be used (also
+                    during data set creation) when an accession ID exists for a given CMMS Entity.
+                </Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.2: introduced
+                    MSMdad v.1.0.0: none
+                    MSMdad v.2.0.0: none
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Observation Ref (1.1.10) -->
+        <ATTRIBUTE>
+            <Attribute_ID>1.1.10</Attribute_ID>
+            <Name>Observation Ref</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>OBSERVATION_REF</Machine_Readable_Field_Name>
+            <Class>Housekeeping</Class>
+            <CMMS_Entity>Dataset</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>A unique identifier of an Observation that is contained within the dataset.</Description>
+            <Explanation>
+                This attribute can occur multiple times if more than one Observation is present within
+                the dataset.
+            </Explanation>
+            <METAFLEX>ReferenceType</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>
+                    CAVEAT:
+                    During dataset creation the xs:attribute “alias” must be used to reference a given CMMS
+                    Entity if the given CMMS Entity has not received an accession ID by the repository yet
+                    (I.e. Non-Complementary Datasets). However, during the submission process the
+                    repository will assign unique accession IDs to every CMMS Entity and internal references
+                    will be updated using the newly generated accession IDs by injecting them into the XML
+                    files.
+                    Once an accession ID has been assigned to a given CMMS Entity the xs:attribute
+                    “accession” must be used to reference the given CMMS Entity. This especially relates to
+                    Complementary Datasets, where only the xs:attribute “accession” must be used (also
+                    during data set creation) when an accession ID exists for a given CMMS Entity.
+                </Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.2: introduced
+                    MSMdad v.1.0.0: none
+                    MSMdad v.2.0.0: none
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Annotation Ref (1.1.11) -->
+        <ATTRIBUTE>
+            <Attribute_ID>1.1.11</Attribute_ID>
+            <Name>Annotation Ref</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>ANNOTATION_REF</Machine_Readable_Field_Name>
+            <Class>Housekeeping</Class>
+            <CMMS_Entity>Dataset</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>A unique identifier of an Annotation that is contained within the dataset.</Description>
+            <Explanation>
+                This attribute can occur multiple times if more than one Annotation is present within the
+                dataset.
+            </Explanation>
+            <METAFLEX>ReferenceType</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>
+                    CAVEAT:
+                    During dataset creation the xs:attribute “alias” must be used to reference a given CMMS
+                    Entity if the given CMMS Entity has not received an accession ID by the repository yet
+                    (I.e. Non-Complementary Datasets). However, during the submission process the
+                    repository will assign unique accession IDs to every CMMS Entity and internal references
+                    will be updated using the newly generated accession IDs by injecting them into the XML
+                    files.
+                    Once an accession ID has been assigned to a given CMMS Entity the xs:attribute
+                    “accession” must be used to reference the given CMMS Entity. This especially relates to
+                    Complementary Datasets, where only the xs:attribute “accession” must be used (also
+                    during data set creation) when an accession ID exists for a given CMMS Entity.
+                </Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.2: introduced
+                    MSMdad v.1.0.0: none
+                    MSMdad v.2.0.0: none
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Dataset Type (1.1.12) -->
+        <ATTRIBUTE>
+            <Attribute_ID>1.1.12</Attribute_ID>
+            <Name>Dataset Type</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>DATASET_TYPE</Machine_Readable_Field_Name>
+            <Class>Housekeeping</Class>
+            <CMMS_Entity>Dataset</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>The type of Dataset.</Description>
+            <Explanation>-</Explanation>
+            <METAFLEX>xs:string</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>
+                    CONTROLLED VOCABULARY:
+                    [Whole slide imaging]
+                </Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.2: introduced
+                    MSMdad v.1.0.0: none
+                    MSMdad v.2.0.0: none
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Data Owner Contact Email (1.1.13) -->
+        <ATTRIBUTE>
+            <Attribute_ID>1.1.13</Attribute_ID>
+            <Name>Data Owner Contact Email</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>data_owner_contact_email</Machine_Readable_Field_Name>
+            <Class>Housekeeping</Class>
+            <CMMS_Entity>Dataset</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>
+                An email address of the data owner that can be used to get in contact in case of
+                suspicion of a data breach.
+            </Description>
+            <Explanation>Preferably a generic address</Explanation>
+            <METAFLEX>xs:string</METAFLEX>
+            <Value_Specification>
+                <NA>allowed</NA>
+                <NA_Value>N/A</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>-</Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>MSMdad v.2.0.0: introduced</Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Tox Study Duration (1.2.1) -->
+        <ATTRIBUTE>
+            <Attribute_ID>1.2.1</Attribute_ID>
+            <Name>Tox Study Duration</Name>
+            <Inclusion_Status_Context>specific [Non-Clinical]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>tox_study_duration</Machine_Readable_Field_Name>
+            <Class>Technical</Class>
+            <CMMS_Entity>Dataset</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>
+                The length of time (days, weeks, months, years) during which a research study was
+                conducted.
+            </Description>
+            <Explanation>-</Explanation>
+            <METAFLEX>CodeAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>String ATTRIBUTE</Data_Type>
+                <Unit>All units allowed by the ISO standard can be used</Unit>
+                <Comment>Scheme: CDISC/SEND - TS SLENGTH</Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.0:
+                    MSMdad v.0.1.1:
+                    MSMdad v.0.1.2: Spelling, unit specification and MetaFleX type
+                    MSMdad v.1.0.0: none
+                    MSMdad v.2.0.0: none
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+    </Attributes>
+</Entity>

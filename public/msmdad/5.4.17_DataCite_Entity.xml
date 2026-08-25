@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- 5.4.17 DataCite Entity -->
+<!-- This entity is based on the DataCite Metadata Schema v4.5. See: https://schema.datacite.org/meta/kernel-4.5/doc/DataCite-MetadataKernel_v4.5.pdf -->
+
+<DataCiteEntity id="5.4.17" name="DataCite Entity">
+    <Number>5.4.17</Number>
+    <Name>DataCite Entity</Name>
+    <Attributes>
+        <!-- Identifier (1) [M] -->
+        <!-- Creator (2) [M] -->
+        <!-- Title (3) [M] -->
+        <!-- Publisher (4) [M] -->
+        <!-- PublicationYear (5) [M] -->
+        <!-- ResourceType (10) [M] -->
+        <!-- Example: <resourceType resourceTypeGeneral="Dataset">Supplementary Dataset</resourceType> -->
+
+        <!-- Subject (6) [R] -->
+        <!-- Contributor (7) [R] -->
+        <!-- Date (8) [R] -->
+        <!-- Language (9) [O] -->
+        <!-- AlternateIdentifier (11) [O] -->
+        <!-- RelatedIdentifier (12) [R] -->
+        <!-- Size (13) [O] -->
+        <!-- Format (14) [O] -->
+        <!-- Version (15) [O] -->
+        <!-- Rights (16) [O] -->
+        <!-- Description (17) [R] -->
+        <!-- GeoLocation (18) [R] -->
+        <!-- FundingReference (19) [O] -->
+        <!-- RelatedItem (20) [O] -->
+    </Attributes>
+</DataCiteEntity>

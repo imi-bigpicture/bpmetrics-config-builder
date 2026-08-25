@@ -1,0 +1,131 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Entity id="5.4.7" name="Block Entity">
+    <Number>5.4.7</Number>
+    <Name>Block Entity</Name>
+    <Attributes>
+        <!-- Block ID (4.1.1) -->
+        <ATTRIBUTE>
+            <Attribute_ID>4.1.1</Attribute_ID>
+            <Name>Block ID</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>block_id</Machine_Readable_Field_Name>
+            <Class>Housekeeping</Class>
+            <CMMS_Entity>Block</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>A unique identifier of the Block.</Description>
+            <Explanation>The uniqueness refers to the context of the dataset.</Explanation>
+            <METAFLEX>ObjectType Attribute “alias” AND/OR “accession”</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>
+                    CAVEAT:
+                    During dataset creation the submitter must use the Object Attribute “alias” to state a
+                    unique identifier, however, during the submission process that repository automatically
+                    generates a unique accession ID for each submitted CMMS Entity. This accession ID will
+                    be automatically injected into the XML file using the xs:attribute “accession” by the
+                    repository during the upload process.
+                    Once an accession ID has been generated all references to a given CMMS Entity must use
+                    the xs:attribute “accession” and not the xs:attribute “alias”.
+                </Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.0: -
+                    MSMdad v.0.1.1: -
+                    MSMdad v.0.1.2: none
+                    MSMdad v.1.0.0: none
+                    MSMdad v.2.0.0: none
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Sampled From (4.1.2) -->
+        <ATTRIBUTE>
+            <Attribute_ID>4.1.2</Attribute_ID>
+            <Name>Sampled From</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>SAMPLED_FROM</Machine_Readable_Field_Name>
+            <Class>Housekeeping</Class>
+            <CMMS_Entity>Block</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>The IDs of the Specimens the Block is sampled from.</Description>
+            <Explanation>-</Explanation>
+            <METAFLEX>ReferenceType</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>
+                    CAVEAT:
+                    During dataset creation the xs:attribute “alias” must be used to reference a given CMMS
+                    Entity if the given CMMS Entity has not received an accession ID by the repository yet
+                    (I.e. Non-Complementary Datasets). However, during the submission process the
+                    repository will assign unique accession IDs to every CMMS Entity and internal references
+                    will be updated using the newly generated accession IDs by injecting them into the XML
+                    files.
+                    Once an accession ID has been assigned to a given CMMS Entity the xs:attribute
+                    “accession” must be used to reference the given CMMS Entity. This especially relates to
+                    Complementary Datasets, where only the xs:attribute “accession” must be used (also
+                    during data set creation) when an accession ID exists for a given CMMS Entity.
+                </Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.0: -
+                    MSMdad v.0.1.1: -
+                    MSMdad v.0.1.2: change in spelling
+                    MSMdad v.1.0.0: none
+                    MSMdad v.2.0.0: none
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Block Preparation (4.2.1) -->
+        <ATTRIBUTE>
+            <Attribute_ID>4.2.1</Attribute_ID>
+            <Name>Block Preparation</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>block_preparation</Machine_Readable_Field_Name>
+            <Class>Technical</Class>
+            <CMMS_Entity>Block</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>The preservation technique used (e.g. paraffin).</Description>
+            <Explanation>Tissue Processing/Infiltration+Embedding</Explanation>
+            <METAFLEX>CodeAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>Allowed for clinical; not allowed for non-clinical</NA>
+                <NA_Value>'nil'</NA_Value>
+                <Data_Type>CODE ATTRIBUTE</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>
+                    SCHEMA:
+                    The following SNOMED CT concepts must be used to code this attribute
+                    (The list is equivalent to the DICOM Attribute CID 8115 Specimen Embedding Media)
+                    • SCTID: 311731000 - Paraffin wax (substance),
+                    • SCTID: 433469005 - Frozen section embedding medium (substance),
+                    • SCTID: 61088005 - Plastic (substance),
+                    • SCTID: 10249006 - Agar (substance),
+                    • SCTID: 65345002 - Epoxy resin (substance),
+                    • SCTID: 261712009 - Acrylic polymer (substance)
+                </Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.0: -
+                    MSMdad v.0.1.1: -
+                    MSMdad v.0.1.2: N/A value
+                    MSMdad v.1.0.0: none
+                    MSMdad v.2.0.0: none
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+    </Attributes>
+</Entity>

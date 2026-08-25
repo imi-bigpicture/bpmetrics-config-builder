@@ -1,0 +1,724 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Entity id="5.4.3" name="Policy Entity">
+    <Number>5.4.3</Number>
+    <Name>Policy Entity</Name>
+    <Attributes>
+        <!-- Policy ID (9.1.1) -->
+        <ATTRIBUTE>
+            <Attribute_ID>9.1.1</Attribute_ID>
+            <Name>Policy ID</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>policy_id</Machine_Readable_Field_Name>
+            <Class>Housekeeping</Class>
+            <CMMS_Entity>Policy</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>A unique identifier of the Policy.</Description>
+            <Explanation>-</Explanation>
+            <METAFLEX>ObjectType Attribute “alias” AND/OR “accession”</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>
+                    CAVEAT:
+                    During dataset creation the submitter must use the Object Attribute “alias” to state a
+                    unique identifier, however, during the submission process that repository automatically
+                    generates a unique accession ID for each submitted CMMS Entity. This accession ID will
+                    be automatically injected into the XML file using the xs:attribute “accession” by the
+                    repository during the upload process.
+                    Once an accession ID has been generated all references to a given CMMS Entity must use
+                    the xs:attribute “accession” and not the xs:attribute “alias”.
+                </Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.2: introduced
+                    MSMdad v.1.0.0: none
+                    MSMdad v.2.0.0: none
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Dataset Ref (9.1.2) -->
+        <ATTRIBUTE>
+            <Attribute_ID>9.1.2</Attribute_ID>
+            <Name>Dataset Ref</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>DATASET_REF</Machine_Readable_Field_Name>
+            <Class>Housekeeping</Class>
+            <CMMS_Entity>Policy</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>A unique identifier of the Dataset the Policy relates to.</Description>
+            <Explanation>-</Explanation>
+            <METAFLEX>RefObjectType</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>
+                    CAVEAT:
+                    During dataset creation the xs:attribute “alias” must be used to reference a given
+                    CMMS Entity if the given CMMS Entity has not received an accession ID by the
+                    repository yet (I.e. Non-Complementary Datasets). However, during the submission
+                    process the repository will assign unique accession IDs to every CMMS Entity and
+                    internal references will be updated using the newly generated accession IDs by injecting
+                    them into the XML files.
+                    Once an accession ID has been assigned to a given CMMS Entity the xs:attribute
+                    “accession” must be used to reference the given CMMS Entity. This especially relates to
+                    Complementary Datasets, where only the xs:attribute “accession” must be used (also
+                    during data set creation) when an accession ID exists for a given CMMS Entity.
+                </Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>MSMdad v.2.0.0: Introduced, ATTRIBUTE ID of DAC REF 9.1.2. was reused.</Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Policy Title (9.1.3) -->
+        <ATTRIBUTE>
+            <Attribute_ID>9.1.3</Attribute_ID>
+            <Name>Policy Title</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>title</Machine_Readable_Field_Name>
+            <Class>Housekeeping</Class>
+            <CMMS_Entity>Policy</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>The title of the Policy.</Description>
+            <Explanation>-</Explanation>
+            <METAFLEX>xs:string</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>-</Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.2: introduced
+                    MSMdad v.1.0.0: none
+                    MSMdad v.2.0.0: none
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Type of Dataset (9.1.4) -->
+        <ATTRIBUTE>
+            <Attribute_ID>9.1.4</Attribute_ID>
+            <Name>Type of Dataset</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>type_of_dataset</Machine_Readable_Field_Name>
+            <Class>Legal/Ethical</Class>
+            <CMMS_Entity>Policy</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>Defines whether the dataset is Clinical or Non-Clinical, and how it is de-identified.</Description>
+            <Explanation>
+                Defines whether the data is Clinical or Non-Clinical, and how it is de-identified. Please note
+                that scrambled data will only be allowed for a limited time.
+            </Explanation>
+            <METAFLEX>StringAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>
+                    CONTROLLED VOCABULARY:
+                    • Non-Clinical/Obscured
+                    • Non-Clinical/Cryptonymised
+                    • Clinical/Anonymized
+                    • Clinical/Pseudonymized
+                    • Clinical/Scrambled
+                </Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>MSMdad v.2.0.0: Introduced</Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Type Of Access (9.1.5) -->
+        <ATTRIBUTE>
+            <Attribute_ID>9.1.5</Attribute_ID>
+            <Name>Type Of Access</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>type_of_access</Machine_Readable_Field_Name>
+            <Class>Legal/Ethical</Class>
+            <CMMS_Entity>Policy</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>
+                Defines whether the dataset can be accessed directly (all data) or indirectly via a
+                Bigpicture-controlled software and the User will not see the actual Data and/or software
+                (meaning they will remain hidden).
+            </Description>
+            <Explanation>
+                Further information about the definition of the terms Direct and Indirect Access can be
+                looked up in the Glossary of Terms of Bigpicture:
+                https://bigpictureeu.sharepoint.com/Lists/Glossary%20of%20Terms/AllItems.aspx
+            </Explanation>
+            <METAFLEX>StringAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>
+                    CONTROLLED VOCABULARY:
+                    ● Direct Access
+                    ● Indirect Access
+                    
+                    **Bigpicture prepares for facilitating indirect access in the future. The Policy entity reflects the
+                    agreed-upon Terms of Use template, as well as the Data Sharing Agreement.
+                </Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>MSMdad v.2.0.0: Introduced</Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Policy Text (9.5.1) -->
+        <ATTRIBUTE>
+            <Attribute_ID>9.5.1</Attribute_ID>
+            <Name>Policy Text</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>policy_text</Machine_Readable_Field_Name>
+            <Class>Legal/Ethical</Class>
+            <CMMS_Entity>Policy</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>
+                The general terms and conditions for using Bigpicture datasets as stated in the Data
+                Sharing Agreement.
+            </Description>
+            <Explanation>Excerpts of the relevant paragraphs of the Data Sharing Agreement in laymen terms.</Explanation>
+            <METAFLEX>StringAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>
+                    The following text must be stated:
+                    DISSCLAIMER:
+                    The use and sharing of Bigpicture data is dictated by the Bigpicture Data Sharing
+                    Agreement. The Policy Text comprises a concise overview thereof, however, only the
+                    official and formally signed contractual documents (i.e. the Data Sharing Agreement, the
+                    Data Processing Agreement, the Consortium Agreement, and the Grant Agreement)
+                    related to Bigpicture Data Sharing and Processing have a binding value.
+                    Summary of relevant clauses for Data Users
+                    This document serves as an overview of the relevant clauses and sections of clauses for
+                    Data Users, and is for reference purposes only. In case of doubt about the contents of
+                    the clauses, the original text of the DSA always takes precedence over this summary. The
+                    full text of the relevant clauses is also included in this document.
+                    Clause 2. [Definitions]
+                    ‘Data User’ means any Beneficiary whose Employees are exercising the Access Rights to
+                    certain Data in accordance with the terms set out in this Agreement and defined by the
+                    Data Contributor in the ToU. For the avoidance of doubt, Data Users may include
+                    employees of Affiliated Entities and Linked Third Parties, Sub-Contractors, to the extent
+                    that those entities enjoy the rights and obligations under this Agreement. In next phases
+                    of the Project, Data Users will also include Slide Contributing Third Parties and finally
+                    Third Parties.
+                    Clause 3. [Contribution of the Data]
+                    Data Contributors and Data Users shall sign the Hosting and Processing Agreement with
+                    Hosting Beneficiaries as set forth in EXHIBIT 4.
+                    Clause 5. Data Access
+                    Clause 5 outlines the terms and conditions for Data Access. Beneficiaries (as potential
+                    Data Users) can request access to specific datasets by following the Terms of Use set by
+                    the Data Contributor, in line with the Consortium Agreement and data protection laws.
+                    To apply, they must submit a request through the REMS portal, providing necessary
+                    details such as the dataset, data users, employees, and the research purpose.
+                    If the requesting party is in a non-European Economic Area country without an EU
+                    adequacy decision, a data transfer agreement must be signed to meet cross-border data
+                    transfer obligations, such as the Standard Contractual Clauses issued by the European
+                    Commission or comply with another compliant cross-border data transfer mechanism. A
+                    Transfer Impact Assessment may also be required.
+                    Clause 6. [Obligations of the Data Users]
+                    Clause 6 outlines the obligations of the Data Users. They must ensure that its Employees
+                    use the Data only for the agreed purpose, as specified in the Data Access request, and in
+                    compliance with the relevant agreements and legislation. The Data must not be
+                    processed in ways incompatible with its original purpose. The Data Contributor retains
+                    the right to use their Data for their own purposes if they are the Data Controller or have
+                    a legal right to do so.
+                    Each Data User processing Data must:
+                    - Comply with applicable Data Protection Legislation.
+                    - Act proportionately to the research aim when acting as a Controller.
+                    - Follow recognized ethical standards for scientific research.
+                    - Adhere to the conditions and restrictions set by the Data Contributor in the Terms of
+                    Use.
+                    Specific obligations for Data Users include:
+                    - Implement guidelines and procedures to ensure Employee compliance with the DSA,
+                    ToU, and Data Protection Legislation.
+                    - Ensure Employees treat all Data as confidential unless otherwise indicated and comply
+                    with data transfer rules for countries outside the EU/EEA.
+                    - Ensure authorised third parties process Data only according to instructions.
+                    - Access and process Data only as necessary for the Project or approved Research Use.
+                    - Notify the Data Contributor of any errors in the Data or security breaches without
+                    undue delay.
+                    - Accept that Data access may be interrupted or suspended for maintenance or security
+                    reasons.
+                    - Accept updates to Data and remove earlier versions if reissued due to Data Subject
+                    requests.
+                    - Implement security measures to protect Data downloaded from the Bigpicture
+                    Platform.
+                    - Delete Data upon a justified request from the Data Contributor.
+                    When accessing Personal Data:
+                    - For Research Use, the Data User will be considered a Controller unless stated otherwise
+                    in EXHIBIT 2 or agreed in writing between the concerned Data Contributor and Data
+                    User in a separate agreement.
+                    - For Implementation of Action, roles are outlined in EXHIBIT 2.
+                    Clause 10. [Data Protection Impact Assessment (DPIA)]
+                    Clause 10 outlines the obligations for Beneficiaries regarding the execution of a DPIA.
+                    Data Users must ensure they access Personal Data only if a DPIA is not required or if a
+                    DPIA has been completed and its conclusions permit the planned use. The Data
+                    Contributor or its Data Access Committee (DAC) can request the DPIA from the Data User
+                    before granting access to the data.
+                    Clause 11. [Non-transferability]
+                    Data Users (except where Data User is the Beneficiary which contributed the relevant
+                    Data) must ensure that neither they nor their Employees transfer or disclose the Data or
+                    any material to any third party, including other Employees, unless:
+                    a) Permitted under the DSA,
+                    b) A separate Data Access request has been filed and approved by the relevant Data
+                    Contributor, or
+                    c) Permitted under the provisions on the rights of the Affiliated Entities, Linked Third
+                    Parties and Sub-Contractors in the Consortium Agreement and the DSA.
+                    Clause 15. [Term and termination]
+                    Clause 15 outlines, insofar as relevant to the Data Users, the consequences of
+                    termination or expiration of the DSA.
+                    a) Upon termination or expiration of the DSA, all Beneficiaries must stop processing the
+                    relevant Data. However, if a Beneficiary started processing Data for research before
+                    termination, they can continue until completion, unless the termination is due to specific
+                    listed reasons or the withdrawal of necessary authorizations.
+                    b) Access Rights to the Data will be immediately revoked for Data Users and their
+                    Employees whose participation is terminated.
+                    c) All Data Users and their Employees must securely delete the Data they received via the
+                    Bigpicture Platform and remove any existing copies, unless permitted otherwise by the
+                    Data Contributor or applicable law.
+                    d) Data Users must confirm the Data erasure or provide reasons for retention if
+                    requested by the Data Contributor.
+                    EXHIBIT 4: Hosting and Processing Agreement
+                    Agreement to be signed between Data Contributors/Data Users and Hosting
+                    Beneficiaries, whereby the Data Contributors and Data Users act as (or on behalf of)
+                    Controllers and Hosting Beneficiaries (CSC and UU) act as Processors.
+                </Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.2: Introduced
+                    MSMdad v.1.0.0: None
+                    MSMdad v.2.0.0: Change of MetaFleX type to STRING_ATTRIBUTE
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Legal Basis for Sharing the Data (9.5.2) -->
+        <ATTRIBUTE>
+            <Attribute_ID>9.5.2</Attribute_ID>
+            <Name>Legal Basis for Sharing the Data</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>legal_basis_for_sharing_the_data</Machine_Readable_Field_Name>
+            <Class>Legal/Ethical</Class>
+            <CMMS_Entity>Policy</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>
+                Describes the legal basis that allows for sharing pseudonymised data, for example informed
+                consent, biobank legislation, etc. Must be provided if ATTRIBUTE ID 9.1.4: Type of Dataset
+                == “Clinical/Pseudonymized”. Otherwise, it can be omitted.
+            </Description>
+            <Explanation>Only required for pseudonymized data.</Explanation>
+            <METAFLEX>StringAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>
+                    This can state either just:
+                    • “Informed Consent Form”
+                    • Or a description of the legal basis in text form (e.g. a reference to a local applicable law)
+                </Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>MSMdad v.2.0.0: Introduced</Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Terms of Use Version (9.5.3) -->
+        <ATTRIBUTE>
+            <Attribute_ID>9.5.3</Attribute_ID>
+            <Name>Terms of Use Version</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>terms_of_use_version</Machine_Readable_Field_Name>
+            <Class>Legal/Ethical</Class>
+            <CMMS_Entity>Policy</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>The date when the current version of the Terms of use were defined.</Description>
+            <Explanation>
+                As the terms of use for a dataset may be changed over time, the version of the terms of use
+                is defined by a date.
+            </Explanation>
+            <METAFLEX>StringAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>
+                    YYYY-MM-DD
+                    ISO-8601 Date
+                    Note:
+                    The time stamp (i.e. hh:mm:ss) is optional, however, can be used.
+                </Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>MSMdad v.2.0.0: Introduced</Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Allowed Uses (9.5.4) -->
+        <ATTRIBUTE>
+            <Attribute_ID>9.5.4</Attribute_ID>
+            <Name>Allowed Uses</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>allowed_uses</Machine_Readable_Field_Name>
+            <Class>Legal/Ethical</Class>
+            <CMMS_Entity>Policy</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>Contains a set of ATTRIBUTE ID 9.1.18.1: Allowed Use attributes.</Description>
+            <Explanation>-</Explanation>
+            <METAFLEX>SetAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>SET_ATTRIBUTE</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>-</Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>MSMdad v.2.0.0: Introduced</Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Allowed Use (9.5.4.1) -->
+        <ATTRIBUTE>
+            <Attribute_ID>9.5.4.1</Attribute_ID>
+            <Name>Allowed Use</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>allowed_use</Machine_Readable_Field_Name>
+            <Class>Legal/Ethical</Class>
+            <CMMS_Entity>Policy</CMMS_Entity>
+            <Parent_Attribute>9.5.4: Allowed Uses</Parent_Attribute>
+            <Description>Defines for which purpose the data may be used. Multiple options allowed.</Description>
+            <Explanation>-</Explanation>
+            <METAFLEX>StringAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>
+                    CONTROLLED VOCABULARY:
+                    ● Implementation of Bigpicture Project (IMI2-945358)
+                    ● Research Use
+                    ● Direct Exploitation
+                    
+                    Please note that this attribute can only contain one of the above-mentioned terms.
+                    However, multiple “Allowed Use” attributes can be present within ATTRIBUTE ID 9.5.4:
+                    Allowed Uses
+                    
+                    Please refer to the Glossary of Terms of Bigpicture for more detailed information about the
+                    individual terms.
+                </Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>MSMdad v.2.0.0: Introduced</Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Allowed Geographical Distribution (9.5.5) -->
+        <ATTRIBUTE>
+            <Attribute_ID>9.5.5</Attribute_ID>
+            <Name>Allowed Geographical Distribution</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>allowed_geographical_distribution</Machine_Readable_Field_Name>
+            <Class>Legal/Ethical</Class>
+            <CMMS_Entity>Policy</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>
+                Defines where a User receiving the data may be based: in EU only, in countries with GDPR
+                adequacy, or within the entire world
+            </Description>
+            <Explanation>
+                List of countries with GDPR adequacy can be found following this link:
+                https://commission.europa.eu/law/law-topic/data-protection/international-dimensiondata-protection/adequacy-decisions_en
+                
+                Countries with GDPR adequacy includes European Union and EEA Countries, while
+                worldwide includes both other options
+            </Explanation>
+            <METAFLEX>StringAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>
+                    CONTROLLED VOCABULARY:
+                    • European Union and EEA countries
+                    • Countries with GDPR adequacy
+                    • Worldwide
+                </Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>MSMdad v.2.0.0: Introduced</Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Duration Of Use (9.5.6) -->
+        <ATTRIBUTE>
+            <Attribute_ID>9.5.6</Attribute_ID>
+            <Name>Duration Of Use</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>duration_of_use</Machine_Readable_Field_Name>
+            <Class>Legal/Ethical</Class>
+            <CMMS_Entity>Policy</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>
+                Defines how long a User may access the Data: unlimited time, limited to the IMI
+                Bigpicture term, or limited to the duration of the purpose of the data access request.
+            </Description>
+            <Explanation>-</Explanation>
+            <METAFLEX>StringAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>Missing</Unit>
+                <Comment>
+                    CONTROLLED VOCABULARY:
+                    ● Unlimited time
+                    ● Limited to the IMI Bigpicture project term
+                    ● Limited to the duration of purpose of data access request
+                </Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>MSMdad v.2.0.0: Introduced</Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Defined Research Question Required (9.5.7) -->
+        <ATTRIBUTE>
+            <Attribute_ID>9.5.7</Attribute_ID>
+            <Name>Defined Research Question Required</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>defined_research_question_required</Machine_Readable_Field_Name>
+            <Class>Legal/Ethical</Class>
+            <CMMS_Entity>Policy</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>
+                Indicates if the user needs to formulate the intended purpose of the data access in the
+                access request.
+            </Description>
+            <Explanation>-</Explanation>
+            <METAFLEX>StringAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>
+                    CONTROLLED VOCABULARY:
+                    • True
+                    • False
+                </Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>MSMdad v.2.0.0: Introduced</Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Informed Consent Form Defined Use Restrictions (9.5.8) -->
+        <ATTRIBUTE>
+            <Attribute_ID>9.5.8</Attribute_ID>
+            <Name>Informed Consent Form Defined Use Restrictions</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>informed_consent_form_defined_use_restrictions</Machine_Readable_Field_Name>
+            <Class>Legal/Ethical</Class>
+            <CMMS_Entity>Policy</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>
+                Contains a brief description of particular use restrictions defined in the Inform Consent
+                Form, not captured in any other Policy attribute, if applicable.
+            </Description>
+            <Explanation>
+                This must be written in free text form. The ICF should be submitted to the Bigpicture
+                Share Point
+            </Explanation>
+            <METAFLEX>StringAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>allowed</NA>
+                <NA_Value>‘nillable’</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>-</Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>MSMdad v.2.0.0: Introduced</Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Custom Use Restrictions (9.5.9) -->
+        <ATTRIBUTE>
+            <Attribute_ID>9.5.9</Attribute_ID>
+            <Name>Custom Use Restrictions</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>custom_use_restrictions</Machine_Readable_Field_Name>
+            <Class>Legal/Ethical</Class>
+            <CMMS_Entity>Policy</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>
+                Contains a brief description of particular use restrictions not captured in any other Policy
+                attribute, if applicable.
+            </Description>
+            <Explanation>Free Text</Explanation>
+            <METAFLEX>StringAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>allowed</NA>
+                <NA_Value>'nil’</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>-</Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>MSMdad v.0.2.0: Introduced</Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Required Bigpicture Acknowledgement (9.5.10) -->
+        <ATTRIBUTE>
+            <Attribute_ID>9.5.10</Attribute_ID>
+            <Name>Required Bigpicture Acknowledgement</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>required_bigpicture_acknowledgment</Machine_Readable_Field_Name>
+            <Class>Legal/Ethical</Class>
+            <CMMS_Entity>Policy</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>Defines the mandatory IMI JU acknowledgement text (stated).</Description>
+            <Explanation>-</Explanation>
+            <METAFLEX>StringAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>
+                    MUST STATE:
+                    “This project has received funding from the Innovative Medicines Initiative 2 Joint
+                    Undertaking under grant agreement No 945358. This Joint Undertaking receives support
+                    from the European Union’s Horizon 2020 research and innovation program and EFPIA”
+                </Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>MSMdad v.2.0.0: Introduced</Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Required Custom Acknowledgements (9.5.11) -->
+        <ATTRIBUTE>
+            <Attribute_ID>9.5.11</Attribute_ID>
+            <Name>Required Custom Acknowledgements</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>required_custom_acknowledgments</Machine_Readable_Field_Name>
+            <Class>Legal/Ethical</Class>
+            <CMMS_Entity>Policy</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>
+                Contains a set of ATTRIBUTE ID XX: Required Custom Acknowledgement which define the
+                acknowledgements to be included in a publication using the dataset.
+            </Description>
+            <Explanation>-</Explanation>
+            <METAFLEX>SetAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>allowed</NA>
+                <NA_Value>'nil’</NA_Value>
+                <Data_Type>SET</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>
+                </Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>MSMdad v.0.2.0: Introduced</Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Required Custom Acknowledgement (9.5.11.1) -->
+        <ATTRIBUTE>
+            <Attribute_ID>9.5.11.1</Attribute_ID>
+            <Name>Required Custom Acknowledgement</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>required_custom_acknowledgment</Machine_Readable_Field_Name>
+            <Class>Legal/Ethical</Class>
+            <CMMS_Entity>Policy</CMMS_Entity>
+            <Parent_Attribute>9.5.11: Required Custom Acknowledgements</Parent_Attribute>
+            <Description>An acknowledgement text to be included in a publication using the dataset.</Description>
+            <Explanation>-</Explanation>
+            <METAFLEX>StringAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>allowed</NA>
+                <NA_Value>'nil’</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>-</Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>MSMdad v.2.0.0: Introduced</Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Required Citation (9.5.12.1) -->
+        <ATTRIBUTE>
+            <Attribute_ID>9.5.12.1</Attribute_ID>
+            <Name>Required Citation</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>required_citation</Machine_Readable_Field_Name>
+            <Class>Legal/Ethical</Class>
+            <CMMS_Entity>Policy</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>A Reference to be included in a publication using the dataset.</Description>
+            <Explanation>
+                The reference must be clearly identifiable and provided in a free text form, ideally
+                containing a DOI. It is not required to cite the reference in the depicted way, other
+                citation formats can be used.
+            </Explanation>
+            <METAFLEX>StringAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>allowed</NA>
+                <NA_Value>'nil’</NA_Value>
+                <Data_Type>String</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>-</Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>MSMdad v.2.0.0: Introduced</Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+    </Attributes>
+</Entity>

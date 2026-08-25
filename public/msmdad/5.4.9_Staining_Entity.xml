@@ -1,0 +1,392 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Entity id="5.4.9" name="Staining Entity">
+    <Number>5.4.9</Number>
+    <Name>Staining Entity</Name>
+    <Attributes>
+        <!-- Staining ID (12.1.1) -->
+        <ATTRIBUTE>
+            <Attribute_ID>12.1.1</Attribute_ID>
+            <Name>Staining ID</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>staining_id</Machine_Readable_Field_Name>
+            <Class>Housekeeping</Class>
+            <CMMS_Entity>Staining</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>A unique identifier of the Staining.</Description>
+            <Explanation>The uniqueness refers to the context of the dataset. Defined by the data submitter.</Explanation>
+            <METAFLEX>ObjectType Attribute “alias” AND/OR “accession”</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>
+                    CAVEAT:
+                    During dataset creation the submitter must use the Object Attribute “alias” to state a
+                    unique identifier, however, during the submission process that repository automatically
+                    generates a unique accession ID for each submitted CMMS Entity. This accession ID will
+                    be automatically injected into the XML file using the xs:attribute “accession” by the
+                    repository during the upload process.
+                    Once an accession ID has been generated all references to a given CMMS Entity must use
+                    the xs:attribute “accession” and not the xs:attribute “alias”.
+                </Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.2: introduced
+                    MSMdad v.1.0.0: none
+                    MSMdad v.2.0.0: none
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Staining Compound (12.2.1) -->
+        <ATTRIBUTE>
+            <Attribute_ID>12.2.1</Attribute_ID>
+            <Name>Staining Compound</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>staining_compound</Machine_Readable_Field_Name>
+            <Class>Technical</Class>
+            <CMMS_Entity>Staining</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>
+                The staining compound used that binds to parts of the tissues of a given Slide. Only
+                mandatory if ATTRIBUTE ID 12.2.6: Staining Procedure has not been specified.
+            </Description>
+            <Explanation>
+                For immunohistochemistry, immunofluorescence and in-situ hybridization staining
+                reagents (i.e targeted stains) this field delineates the type of molecule used (i.e.
+                Antibody, DNA, RNA).
+            </Explanation>
+            <METAFLEX>CodeAttributeType OR StringAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>CODE ATTRIBUTE OR STRING</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>
+                    For chemical stains:
+                    SCHEMA:
+                    • SNOMED CT Stain (substance) Concept and its children
+                    • OR free text if the compound is not present in SNOMED CT
+
+                    For targeted stains:
+                    CONTROLLED VOCABULARY:
+                    • ‘antibody’ (if ATTRIBUTE ID 12.2.4 Staining Reporter Type == immunogenic)
+                    • ‘Double-stranded DNA’ (if ATTRIBUTE ID 12.2.4 Staining Reporter Type == in situ hybridization)
+                    • ‘Single-stranded DNA’ (if ATTRIBUTE ID 12.2.4 Staining Reporter Type == in situ hybridization)
+                    • ‘RNA’ (if ATTRIBUTE ID 12.2.4 Staining Reporter Type == in situ hybridization)
+                    • ‘Synthetic oligonucleotide’ (if ATTRIBUTE ID 12.2.4 Staining Reporter Type == in situ hybridization)
+                    OR (if nothing applies)
+                    • FreeText
+                </Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.0: -
+                    MSMdad v.0.1.1: -
+                    MSMdad v.0.1.2: change of ATTRIBUTE ID
+                    MSMdad v.1.0.0: none
+                    MSMdad v.2.0.0: Change in explanation text
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Staining Target (12.2.2) -->
+        <ATTRIBUTE>
+            <Attribute_ID>12.2.2</Attribute_ID>
+            <Name>Staining Target</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>staining_target</Machine_Readable_Field_Name>
+            <Class>Technical</Class>
+            <CMMS_Entity>Staining</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>
+                The specific target of the stain. (e.g. Protein). Only conditionally mandatory for targeted
+                stains (i.e. immunohistochemistry, immunofluorescence and in-situ hybridization).
+            </Description>
+            <Explanation>
+                Currently this attribute is only specified for protein targets. For non-protein targets the
+                value specification will be introduced on demand in future.
+            </Explanation>
+            <METAFLEX>CodeAttributeType OR StringAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>CODE ATTRIBUTE OR STRING</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>
+                    For single target antibodies:
+                    SCHEMA:
+                    • HUGO Gene Nomenclature Commitee (HGNC) ID
+                    The value must be stated by using the HUGO Gene Nomenclature Commitee (HGNC) ID
+                    and approved symbol if target gene can be found.
+                    In cases where the target gene cannot be found a custom STRING can be entered.
+                    For multi-target antibodies:
+                    The submitter is free to state a value of their liking as a STRING (e.g. 'pan-cytokeratin', 'AE1+AE3')
+                </Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.0: -
+                    MSMdad v.0.1.1: -
+                    MSMdad v.0.1.2: change of ATTRIBUTE ID, change of value specification
+                    MSMdad v.1.0.0: none
+                    MSMdad v.2.0.0: change in description text
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Staining Method (12.2.3) -->
+        <ATTRIBUTE>
+            <Attribute_ID>12.2.3</Attribute_ID>
+            <Name>Staining Method</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>staining_method</Machine_Readable_Field_Name>
+            <Class>Technical</Class>
+            <CMMS_Entity>Staining</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>The staining method used.</Description>
+            <Explanation>-</Explanation>
+            <METAFLEX>StringAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>
+                    CONTROLLED VOCABULARY:
+                    • chemical
+                    • immunostaining
+                    • in situ hybridization
+                </Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.0: -
+                    MSMdad v.0.1.1: -
+                    MSMdad v.0.1.2: change of ATTRIBUTE ID
+                    MSMdad v.1.0.0: none
+                    MSMdad v.2.0.0: change of controlled vocabulary (immunostaining vs. Immunogenic)
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Staining Reporter Type (12.2.4) -->
+        <ATTRIBUTE>
+            <Attribute_ID>12.2.4</Attribute_ID>
+            <Name>Staining Reporter Type</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>staining_reporter_type</Machine_Readable_Field_Name>
+            <Class>Technical</Class>
+            <CMMS_Entity>Staining</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>
+                The type of reporter (e.g. chromogen or fluorochrome). Only conditionally mandatory for
+                targeted stains (i.e. immunostaining, in-situ hybridization)
+            </Description>
+            <Explanation>-</Explanation>
+            <METAFLEX>StringAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>
+                    CONTROLLED VOCABULARY:
+                    • chromogen
+                    • fluorochrome
+                    Or free text if none of the above is applicable.
+                </Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.0: -
+                    MSMdad v.0.1.1: -
+                    MSMdad v.0.1.2: change of ATTRIBUTE ID
+                    MSMdad v.1.0.0: none
+                    MSMdad v.2.0.0: change in definition text and change of controlled vocabulary replacing
+                    fluorogen with fluorochrome
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Staining Reporter Color (12.2.5) -->
+        <ATTRIBUTE>
+            <Attribute_ID>12.2.5</Attribute_ID>
+            <Name>Staining Reporter Color</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>staining_reporter_color</Machine_Readable_Field_Name>
+            <Class>Technical</Class>
+            <CMMS_Entity>Staining</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>
+                The color of the compound used as the reporter in the staining process. Only
+                conditionally mandatory for targeted stains (i.e. immunogenic, iSH)
+            </Description>
+            <Explanation>-</Explanation>
+            <METAFLEX>StringAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>
+                    CONTROLLED VOCABULARY:
+                    • brown
+                    • red
+                    • black
+                    • teal
+                    • purple
+                    • green
+                    • yellow
+                    The list might be expanded in future if needed.
+                </Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.0: -
+                    MSMdad v.0.1.1: -
+                    MSMdad v.0.1.2: change of ATTRIBUTE ID, change of field name
+                    MSMdad v.1.0.0: none
+                    MSMdad v.2.0.0: none
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Staining Procedure (12.2.6) -->
+        <ATTRIBUTE>
+            <Attribute_ID>12.2.6</Attribute_ID>
+            <Name>Staining Procedure</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>staining_procedure</Machine_Readable_Field_Name>
+            <Class>Technical</Class>
+            <CMMS_Entity>Staining</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>
+                The name of the staining procedure that was performed to stain the Slide.
+            </Description>
+            <Explanation>-</Explanation>
+            <METAFLEX>CodeAttributeType OR StringAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>CODE ATTRIBUTE OR STRING</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>
+                    SCHEMA:
+                    • SNOMED CT Staining Method (Procedure) Concept and Children
+                    Or free text (STRING) if a given procedure cannot be found within SNOMED CT.
+                </Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.0: -
+                    MSMdad v.0.1.1: -
+                    MSMdad v.0.1.2: change of ATTRIBUTE ID
+                    MSMdad v.1.0.0: none
+                    MSMdad v.2.0.0: none
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Antibody Information (12.2.7) -->
+        <ATTRIBUTE>
+            <Attribute_ID>12.2.7</Attribute_ID>
+            <Name>Antibody Information</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>antibody_information</Machine_Readable_Field_Name>
+            <Class>Technical</Class>
+            <CMMS_Entity>Staining</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>
+                Information about the antibody that was used for staining a specific target. Only
+                conditionally mandatory when ATTRIBUTE ID 12.2.3: Staining Method == 'immunogenic'.
+                Contains ATTRIBUTE ID 12.2.7.1 Commercial Name and ATTRIBUTE ID 12.2.7.2 Antibody Vendor.
+            </Description>
+            <Explanation>-</Explanation>
+            <METAFLEX>SetAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>allowed</NA>
+                <NA_Value>'nil'</NA_Value>
+                <Data_Type>ATTRIBUTE SET</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>-</Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.2: introduced
+                    MSMdad v.1.0.0: none
+                    MSMdad v.2.0.0: none
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Commercial Name (12.2.7.1) -->
+        <ATTRIBUTE>
+            <Attribute_ID>12.2.7.1</Attribute_ID>
+            <Name>Commercial Name</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>commercial_name</Machine_Readable_Field_Name>
+            <Class>Technical</Class>
+            <CMMS_Entity>Staining</CMMS_Entity>
+            <Parent_Attribute>12.2.7: Antibody Information</Parent_Attribute>
+            <Description>The name of the antibody as stated by the vendor.</Description>
+            <Explanation>-</Explanation>
+            <METAFLEX>StringAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>allowed</NA>
+                <NA_Value>‘nil’</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>-</Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.2: introduced
+                    MSMdad v.1.0.0: none
+                    MSMdad v.2.0.0: none
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Antibody Vendor (12.2.7.2) -->
+        <ATTRIBUTE>
+            <Attribute_ID>12.2.7.2</Attribute_ID>
+            <Name>Antibody Vendor</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>antibody_vendor</Machine_Readable_Field_Name>
+            <Class>Technical</Class>
+            <CMMS_Entity>Staining</CMMS_Entity>
+            <Parent_Attribute>12.2.7: Antibody Information</Parent_Attribute>
+            <Description>The vendor/manufacturer of the antibody.</Description>
+            <Explanation>-</Explanation>
+            <METAFLEX>StringAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>allowed</NA>
+                <NA_Value>‘nil’</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>-</Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.2: introduced
+                    MSMdad v.1.0.0: none
+                    MSMdad v.2.0.0: none
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+    </Attributes>
+</Entity>

@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Entity id="5.4.13" name="Observer Entity">
+    <Number>5.4.13</Number>
+    <Name>Observer Entity</Name>
+    <Attributes>
+        <!-- Observer ID (14.1.1) -->
+        <ATTRIBUTE>
+            <Attribute_ID>14.1.1</Attribute_ID>
+            <Name>Observer ID</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>observer_id</Machine_Readable_Field_Name>
+            <Class>Housekeeping</Class>
+            <CMMS_Entity>Observer</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>A unique identifier of the Observer.</Description>
+            <Explanation>The uniqueness refers to the context of the dataset. Defined by the data submitter.</Explanation>
+            <METAFLEX>ObjectType Attribute “alias” AND/OR “accession”</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>
+                    CAVEAT:
+                    During dataset creation the submitter must use the Object Attribute “alias” to state a
+                    unique identifier, however, during the submission process that repository automatically
+                    generates a unique accession ID for each submitted CMMS Entity. This accession ID will
+                    be automatically injected into the XML file using the xs:attribute “accession” by the
+                    repository during the upload process.
+                    Once an accession ID has been generated all references to a given CMMS Entity must use
+                    the xs:attribute “accession” and not the xs:attribute “alias”.
+                </Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.2: introduced
+                    MSMdad v.1.0.0: none
+                    MSMdad v.2.0.0: none
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+    </Attributes>
+</Entity>

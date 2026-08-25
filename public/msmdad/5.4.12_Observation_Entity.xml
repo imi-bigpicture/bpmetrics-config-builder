@@ -1,0 +1,337 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Entity id="5.4.12" name="Observation Entity">
+    <Number>5.4.12</Number>
+    <Name>Observation Entity</Name>
+    <Attributes>
+        <!-- Observation ID (15.1.1) -->
+        <ATTRIBUTE>
+            <Attribute_ID>15.1.1</Attribute_ID>
+            <Name>Observation ID</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>observation_id</Machine_Readable_Field_Name>
+            <Class>Housekeeping</Class>
+            <CMMS_Entity>Observation</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>A unique identifier of the Observation.</Description>
+            <Explanation>The uniqueness refers to the context of the dataset. Defined by the data submitter.</Explanation>
+            <METAFLEX>ObjectType Attribute “alias” AND/OR “accession”</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>
+                    CAVEAT:
+                    During dataset creation the submitter must use the Object Attribute “alias” to state a
+                    unique identifier, however, during the submission process that repository automatically
+                    generates a unique accession ID for each submitted CMMS Entity. This accession ID will
+                    be automatically injected into the XML file using the xs:attribute “accession” by the
+                    repository during the upload process.
+                    Once a accession ID has been generated all references to a given CMMS Entity must use
+                    the xs:attribute “accession” and not the xs:attribute “alias”.
+                </Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.2: introduced
+                    MSMdad v.1.0.0: none
+                    MSMdad v.2.0.0: none
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Observer Ref (15.1.2) -->
+        <ATTRIBUTE>
+            <Attribute_ID>15.1.2</Attribute_ID>
+            <Name>Observer Ref</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>OBSERVER_REF</Machine_Readable_Field_Name>
+            <Class>Housekeeping</Class>
+            <CMMS_Entity>Observation</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>A reference to the Observer(s) of the Observation.</Description>
+            <Explanation>-</Explanation>
+            <METAFLEX>ReferenceType</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>
+                    CAVE:
+                    During dataset creation the xs:attribute “alias” must be used to reference a given CMMS
+                    Entity if the given CMMS Entity has not received an accession ID by the repository yet
+                    (I.e. Non-Complementary Datasets). However, during the submission process the
+                    repository will assign unique accession IDs to every CMMS Entity and internal references
+                    will be updated using the newly generated accession IDs by injecting them into the XML
+                    files.
+                    Once an accession ID has been assigned to a given CMMS Entity the xs:attribute
+                    “accession” must be used to reference the given CMMS Entity. This especially relates to
+                    Complementary Datasets, where only the xs:attribute “accession” must be used (also
+                    during data set creation) when an accession ID exists for a given CMMS Entity.
+                </Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.2: introduced
+                    MSMdad v.1.0.0: none
+                    MSMdad v.2.0.0: none
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Observed On (15.1.3) -->
+        <ATTRIBUTE>
+            <Attribute_ID>15.1.3</Attribute_ID>
+            <Name>Observed On</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>OBSERVED_ON</Machine_Readable_Field_Name>
+            <Class>Housekeeping</Class>
+            <CMMS_Entity>Observation</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>A reference to the CMMS Entity the Observation was performed on.</Description>
+            <Explanation>-</Explanation>
+            <METAFLEX>ReferenceType</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>
+                    CAVEAT:
+                    During dataset creation the xs:attribute “alias” must be used to reference a given CMMS
+                    Entity if the given CMMS Entity has not received an accession ID by the repository yet
+                    (I.e. Non-Complementary Datasets). However, during the submission process the
+                    repository will assign unique accession IDs to every CMMS Entity and internal references
+                    will be updated using the newly generated accession IDs by injecting them into the XML
+                    files.
+                    Once an accession ID has been assigned to a given CMMS Entity the xs:attribute
+                    “accession” must be used to reference the given CMMS Entity. This especially relates to
+                    Complementary Datasets, where only the xs:attribute “accession” must be used (also
+                    during data set creation) when an accession ID exists for a given CMMS Entity.
+                </Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.2: introduced
+                    MSMdad v.1.0.0: none
+                    MSMdad v.2.0.0: none
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Statement (15.3.1) -->
+        <ATTRIBUTE>
+            <Attribute_ID>15.3.1</Attribute_ID>
+            <Name>Statement</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>statement</Machine_Readable_Field_Name>
+            <Class>Biological</Class>
+            <CMMS_Entity>Observation</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>
+                A pathological statement about a CMMS Entity regarded to be true for this CMMS Entity.
+                This attribute is a set comprising the following attributes: ATTRIBUTE ID 15.3.1.1 Statement Type,
+                ATTRIBUTE ID 15.3.1.2 Statement Status, ATTRIBUTE ID 15.3.1.3 Code Attributes Set,
+                ATTRIBUTE ID 15.3.1.4 Custom Attributes Set, ATTRIBUTE ID 15.3.1.5 Freetext
+            </Description>
+            <Explanation>-</Explanation>
+            <METAFLEX>StatementType</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>STATEMENT</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>-</Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.2: introduced
+                    MSMdad v.1.0.0: none
+                    MSMdad v.2.0.0: none
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Statement Type (15.3.1.1) -->
+        <ATTRIBUTE>
+            <Attribute_ID>15.3.1.1</Attribute_ID>
+            <Name>Statement Type</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>statement_type</Machine_Readable_Field_Name>
+            <Class>Biological</Class>
+            <CMMS_Entity>Observation</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>The type of the statement.</Description>
+            <Explanation>-</Explanation>
+            <METAFLEX>xs:string</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>
+                    CONTROLLED VOCABULARY
+                    • Diagnosis
+                    • Macroscopic Description
+                    • Microscopic Description
+                    • Finding
+                </Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.2: introduced
+                    MSMdad v.1.0.0: none
+                    MSMdad v.2.0.0: none
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Statement Status (15.3.1.2) -->
+        <ATTRIBUTE>
+            <Attribute_ID>15.3.1.2</Attribute_ID>
+            <Name>Statement Status</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>statement_status</Machine_Readable_Field_Name>
+            <Class>Biological</Class>
+            <CMMS_Entity>Observation</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>A status indicating if the statement is necessarily true for all downstream entities (e.g. Images) to which the entity, about which the statement was stated, can be related to.</Description>
+            <Explanation>
+                Summary: Integrating downstream information into the statement about the given
+                entity, thereby the statement is not necessarily true for all downstream entities (e.g.
+                Images) but only true for the entire collection/set of downstream or related entities.
+                Distinct: The statement is true for the entity it is related to and all downstream entities.
+            </Explanation>
+            <METAFLEX>xs:string</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>
+                    CONTROLLED VOCABULARY
+                    • Summary
+                    • Distinct
+                </Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.2: introduced
+                    MSMdad v.1.0.0: none
+                    MSMdad v.2.0.0: none
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Code Attributes (15.3.1.3) -->
+        <ATTRIBUTE>
+            <Attribute_ID>15.3.1.3</Attribute_ID>
+            <Name>Code Attributes</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>code_attributes</Machine_Readable_Field_Name>
+            <Class>Biological</Class>
+            <CMMS_Entity>Observation</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>A set of coded attributes.</Description>
+            <Explanation>
+                These types of attributes refer to attributes that can be coded by the means of some
+                internationally or at least published schema, classification, nomenclature or ontology.
+                They comprise the same functionality as all `CodeAttributeTypes` in MetaFleX. As the
+                complexity of a pathological statement can in many instances not be coded using only
+                one ontology/classification/nomenclature (I.e. ICDO + TNM or multiple SEND/CDISC
+                Variables) it was decided that one can add multiple CodeAttributes to a given Statement.
+            </Explanation>
+            <METAFLEX>CodeAttributesType</METAFLEX>
+            <Value_Specification>
+                <NA>allowed</NA>
+                <NA_Value>'nil'</NA_Value>
+                <Data_Type>SET ATTRIBUTE</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>-</Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.2: introduced
+                    MSMdad v.1.0.0: none
+                    MSMdad v.2.0.0: change of attribute name
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Custom Attributes (15.3.1.4) -->
+        <ATTRIBUTE>
+            <Attribute_ID>15.3.1.4</Attribute_ID>
+            <Name>Custom Attributes</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>custom_attributes</Machine_Readable_Field_Name>
+            <Class>Biological</Class>
+            <CMMS_Entity>Observation</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>A set of attributes defined freely by the submitter.</Description>
+            <Explanation>
+                These types of attributes refer to information which can be stored by the means of a
+                'TAG' > 'VALUE' concept. All different MetaFleX Attributes can be used. As the complexity
+                of a pathological statement can require a set of Custom Attributes (I.e. set of custom
+                defined morphological descriptors) it was decided that multiple Custom Attributes can
+                be assigned to a given statement.
+            </Explanation>
+            <METAFLEX>AttributesType</METAFLEX>
+            <Value_Specification>
+                <NA>allowed</NA>
+                <NA_Value>'nil'</NA_Value>
+                <Data_Type>SET ATTRIBUTE</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>-</Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.2: introduced
+                    MSMdad v.1.0.0: none
+                    MSMdad v.2.0.0: change of attribute name
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Freetext (15.3.1.5) -->
+        <ATTRIBUTE>
+            <Attribute_ID>15.3.1.5</Attribute_ID>
+            <Name>Freetext</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>freetext</Machine_Readable_Field_Name>
+            <Class>Biological</Class>
+            <CMMS_Entity>Observation</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>
+                This section of a statement comprises information that is only available as free text. It
+                should be used to store original unparsed data, extracted from some source.
+            </Description>
+            <Explanation>-</Explanation>
+            <METAFLEX>xs:string</METAFLEX>
+            <Value_Specification>
+                <NA>allowed</NA>
+                <NA_Value>'nil'</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>-</Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.2: introduced
+                    MSMdad v.1.0.0: none
+                    MSMdad v.2.0.0: none
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+    </Attributes>
+</Entity>

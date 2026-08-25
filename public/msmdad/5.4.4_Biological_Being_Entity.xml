@@ -1,0 +1,217 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Entity id="5.4.4" name="Biological Being Entity">
+    <Number>5.4.4</Number>
+    <Name>Biological Being Entity</Name>
+    <Attributes>
+        <!-- Biological Being ID (2.1.1) -->
+        <ATTRIBUTE>
+            <Attribute_ID>2.1.1</Attribute_ID>
+            <Name>Biological Being ID</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>biological_being_id</Machine_Readable_Field_Name>
+            <Class>Housekeeping</Class>
+            <CMMS_Entity>Biological Being</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>A unique identifier of the Biological Being.</Description>
+            <Explanation>The uniqueness refers to the context of the dataset. Defined by the data submitter.</Explanation>
+            <METAFLEX>ObjectType Attribute “alias” AND/OR “accession”</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>
+                    CAVEAT:
+                    During dataset creation the submitter must use the Object Attribute “alias” to state a
+                    unique identifier, however, during the submission process that repository automatically
+                    generates a unique accession ID for each submitted CMMS Entity. This accession ID will
+                    be automatically injected into the XML file using the xs:attribute “accession” by the
+                    repository during the upload process.
+                    Once a accession ID has been generated all references to a given CMMS Entity must use
+                    the xs:attribute “accession” and not the xs:attribute “alias”.
+                </Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.0: -
+                    MSMdad v.0.1.1: -
+                    MSMdad v.0.1.2: none
+                    MSMdad v.1.0.0: none
+                    MSMdad v.2.0.0: none
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Termination Status (2.2.14) -->
+        <ATTRIBUTE>
+            <Attribute_ID>2.2.14</Attribute_ID>
+            <Name>Termination Status</Name>
+            <Inclusion_Status_Context>specific [Non-Clinical]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>termination_status</Machine_Readable_Field_Name>
+            <Class>Technical</Class>
+            <CMMS_Entity>Biological Being</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>How the Biological Being died.</Description>
+            <Explanation>This parameter is necessary to identify agonal artifacts.</Explanation>
+            <METAFLEX>CodeAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>string ATTRIBUTE</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>Schema: CDISC/SEND - DS DECOD</Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.0:
+                    MSMdad v.0.1.1:
+                    MSMdad v.0.1.2: value specification and schema type
+                    MSMdad v.1.0.0: none
+                    MSMdad v.2.0.0: none
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Sex (2.3.1) -->
+        <ATTRIBUTE>
+            <Attribute_ID>2.3.1</Attribute_ID>
+            <Name>Sex</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>sex</Machine_Readable_Field_Name>
+            <Class>Biological</Class>
+            <CMMS_Entity>Biological Being</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>The sex of the Biological Being.</Description>
+            <Explanation>-</Explanation>
+            <METAFLEX>StringAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>Allowed for clinical; Not allowed for non-clinical</NA>
+                <NA_Value>'N/A’</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>
+                    CONTROLLED VOCABULARY:
+                    • Male
+                    • Female
+                    • Not-known
+                    • Other
+                </Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.0:
+                    MSMdad v.0.1.1:
+                    MSMdad v.0.1.2: value specification and N/A value
+                    MSMdad v.1.0.0: none
+                    MSMdad v.2.0.0: none
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Animal Species (2.3.2) -->
+        <ATTRIBUTE>
+            <Attribute_ID>2.3.2</Attribute_ID>
+            <Name>Animal Species</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>animal_species</Machine_Readable_Field_Name>
+            <Class>Biological</Class>
+            <CMMS_Entity>Biological Being</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>Species of the Biological Being.</Description>
+            <Explanation>
+                As the repository will contain Images from humans as well as animals at least the
+                difference between humans and other animals must be stated.
+            </Explanation>
+            <METAFLEX>CodeAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>-</NA_Value>
+                <Data_Type>CODE ATTRIBUTE</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>
+                    Schema:
+                    For Clinical: SNOMED CT Organism (organism) concept and children
+                    For Non-Clinical: CDISC/SEND (TS SPECIES)
+                </Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.0:
+                    MSMdad v.0.1.1:
+                    MSMdad v.0.1.2: value specification (schema), change of ATTRIBUTE ID
+                    MSMdad v.1.0.0: none
+                    MSMdad v.2.0.0: none
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Animal Strain (2.3.4) -->
+        <ATTRIBUTE>
+            <Attribute_ID>2.3.4</Attribute_ID>
+            <Name>Animal Strain</Name>
+            <Inclusion_Status_Context>specific [Non-Clinical]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>animal_strain</Machine_Readable_Field_Name>
+            <Class>Biological</Class>
+            <CMMS_Entity>Biological Being</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>
+                Within a species, an individualized population shares genetically transmissible
+                traits/characteristics.
+            </Description>
+            <Explanation>-</Explanation>
+            <METAFLEX>CodeAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>-</NA_Value>
+                <Data_Type>CODE ATTRIBUTE</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>Schema: SEND (TS STRAIN; DM STRAIN)</Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.0:
+                    MSMdad v.0.1.1:
+                    MSMdad v.0.1.2: Value specification and N/A value and Schema Type
+                    MSMdad v.1.0.0: none
+                    MSMdad v.2.0.0: none
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Control Terminology (2.3.5) -->
+        <ATTRIBUTE>
+            <Attribute_ID>2.3.5</Attribute_ID>
+            <Name>Control Terminology</Name>
+            <Inclusion_Status_Context>specific [Non-Clinical]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>control_terminology</Machine_Readable_Field_Name>
+            <Class>Biological</Class>
+            <CMMS_Entity>Biological Being</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>Used to identify if the biological being is a control animal or treated animal</Description>
+            <Explanation>-</Explanation>
+            <METAFLEX>StringAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>-</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>Not applicable</Unit>
+                <Comment>
+                    Schema: SEND (TX Domain)
+                    Controlled Vocabulary:
+                    • CONTROL
+                    • TREATED
+                </Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>MSMdad v.2.0.0: introduced</Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+    </Attributes>
+</Entity>

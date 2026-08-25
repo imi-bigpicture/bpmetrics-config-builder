@@ -1,0 +1,1668 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Entity id="5.4.10" name="Image Entity">
+    <Number>5.4.10</Number>
+    <Name>Image Entity</Name>
+    <Attributes>
+        <!-- Image ID (6.1.1) -->
+        <ATTRIBUTE>
+            <Attribute_ID>6.1.1</Attribute_ID>
+            <Name>Image ID</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>image_id</Machine_Readable_Field_Name>
+            <Class>Housekeeping</Class>
+            <CMMS_Entity>Image</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>A unique identifier of the Image.</Description>
+            <Explanation>The uniqueness refers to the context of the dataset.</Explanation>
+            <METAFLEX>ObjectType Attribute “alias” AND/OR “accession”</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>
+                    CAVEAT:
+                    During dataset creation the submitter must use the Object Attribute “alias” to state a
+                    unique identifier, however, during the submission process that repository automatically
+                    generates a unique accession ID for each submitted CMMS Entity. This accession ID will
+                    be automatically injected into the XML file using the xs:attribute “accession” by the
+                    repository during the upload process.
+                    Once an accession ID has been generated all references to a given CMMS Entity must use
+                    the xs:attribute “accession” and not the xs:attribute “alias”.
+                </Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.0: -
+                    MSMdad v.0.1.1: -
+                    MSMdad v.0.1.2: none
+                    MSMdad v.1.0.0: none
+                    MSMdad v.2.0.0: none
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Image Of (6.1.2) -->
+        <ATTRIBUTE>
+            <Attribute_ID>6.1.2</Attribute_ID>
+            <Name>Image Of</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>IMAGE_OF</Machine_Readable_Field_Name>
+            <Class>Housekeeping</Class>
+            <CMMS_Entity>Slide</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>The ID of the Slide the Image was created from.</Description>
+            <Explanation>-</Explanation>
+            <METAFLEX>ReferenceType</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>
+                    CAVEAT:
+                    During dataset creation the xs:attribute “alias” must be used to reference a given CMMS
+                    Entity if the given CMMS Entity has not received an accession ID by the repository yet
+                    (I.e. Non-Complementary Datasets). However, during the submission process the
+                    repository will assign unique accession IDs to every CMMS Entity and internal references
+                    will be updated using the newly generated accession IDs by injecting them into the XML
+                    files.
+                    Once an accession ID has been assigned to a given CMMS Entity the xs:attribute
+                    “accession” must be used to reference the given CMMS Entity. This especially relates to
+                    Complementary Datasets, where only the xs:attribute “accession” must be used (also
+                    during data set creation) when an accession ID exists for a given CMMS Entity.
+                </Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.0: -
+                    MSMdad v.0.1.1: -
+                    MSMdad v.0.1.2: change in spelling
+                    MSMdad v.1.0.0: none
+                    MSMdad v.2.0.0: none
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Manufacturer's Model Name (6.2.1) -->
+        <ATTRIBUTE>
+            <Attribute_ID>6.2.1</Attribute_ID>
+            <Name>Manufacturer's Model Name</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>manufacturers_model_name</Machine_Readable_Field_Name>
+            <Class>Technical</Class>
+            <CMMS_Entity>Image</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>The name of the scanner model as provided by the manufacturer.</Description>
+            <Explanation>Do not confuse this with the name of the manufacturer. The name of the manufacturer is captured by ATTRIBUTE ID 6.2.5.</Explanation>
+            <METAFLEX>StringAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>allowed</NA>
+                <NA_Value>N/A</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>-</Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>N/A</NA_Value>
+                <Comment>Required (1). Must be present and have a value. Set to UNKNOWN, randomized value (unique or not) if N/A. Otherwise set to real model name.</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.0: -
+                    MSMdad v.0.1.1: -
+                    MSMdad v.0.1.2: value specification
+                    MSMdad v.1.0.0: none
+                    MSMdad v.2.0.0: none
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Device Serial Number (6.2.2) -->
+        <ATTRIBUTE>
+            <Attribute_ID>6.2.2</Attribute_ID>
+            <Name>Device Serial Number</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>
+            </Machine_Readable_Field_Name>
+            <Class>Technical</Class>
+            <CMMS_Entity>Image</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>The serial number of the scanning device.</Description>
+            <Explanation>-</Explanation>
+            <METAFLEX>StringAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>allowed</NA>
+                <NA_Value>N/A</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>-</Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>N/A</NA_Value>
+                <Comment>Required (1). Must be present and have a value. Set to UNKNOWN, randomized value (unique or not) if N/A. Otherwise set to real serial number.</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.0: -
+                    MSMdad v.0.1.1: -
+                    MSMdad v.0.1.2: value specification
+                    MSMdad v.1.0.0: none
+                    MSMdad v.2.0.0: none
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Software Versions (6.2.3) -->
+        <ATTRIBUTE>
+            <Attribute_ID>6.2.3</Attribute_ID>
+            <Name>Software Versions</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>software_versions</Machine_Readable_Field_Name>
+            <Class>Technical</Class>
+            <CMMS_Entity>Image</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>The version of the scanning software used to capture the image.</Description>
+            <Explanation>-</Explanation>
+            <METAFLEX>StringAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>allowed</NA>
+                <NA_Value>N/A</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>If more than one software was used, they must be stated as individual elements in the XML file.</Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>N/A</NA_Value>
+                <Comment>Required (1). Must be present and have a value. Set to UNKNOWN, randomized value (unique or not) if N/A. Otherwise set to real software version.</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.0: -
+                    MSMdad v.0.1.1: -
+                    MSMdad v.0.1.2: value specification
+                    MSMdad v.1.0.0: none
+                    MSMdad v.2.0.0: none
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Acquisition DateTime (6.2.4) -->
+        <ATTRIBUTE>
+            <Attribute_ID>6.2.4</Attribute_ID>
+            <Name>Acquisition DateTime</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>acquisition_datetime</Machine_Readable_Field_Name>
+            <Class>Technical</Class>
+            <CMMS_Entity>Image</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>The date and time at which the Image was scanned.</Description>
+            <Explanation>-</Explanation>
+            <METAFLEX>StringAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>allowed</NA>
+                <NA_Value>N/A</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>FORMAT: ISO 8601 DateTime</Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>1970-01-01</NA_Value>
+                <Comment>Required (1). Must be present and have a value. Set to DUMMY DATE TO DECIDE, or to SHIFTED DATE. Otherwise set to real value.</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.0: -
+                    MSMdad v.0.1.1: -
+                    MSMdad v.0.1.2: change of value specification
+                    MSMdad v.1.0.0: none
+                    MSMdad v.2.0.0: change in DICOM N/A value to 1970-01-01
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Scanner Manufacturer’s Name (6.2.5) -->
+        <ATTRIBUTE>
+            <Attribute_ID>6.2.5</Attribute_ID>
+            <Name>Scanner Manufacturer’s Name</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>scanner_manufacturers_name</Machine_Readable_Field_Name>
+            <Class>Technical</Class>
+            <CMMS_Entity>Image</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>The name of the scanner manufacturer.</Description>
+            <Explanation>-</Explanation>
+            <METAFLEX>StringAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>allowed</NA>
+                <NA_Value>N/A</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>-</Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>N/A</NA_Value>
+                <Comment>
+                    Required (1). Must be present and have a value. Set to UNKNOWN, randomized value (unique or not) if N/A.
+                    Otherwise set to manufacturer name. (In general, I think one likely can determine the manufacturer from other technical details)
+                </Comment>
+                <Change_Log>
+                    MSMdad v.0.1.0: -
+                    MSMdad v.0.1.1: -
+                    MSMdad v.0.1.2: value specification, change of name
+                    MSMdad v.1.0.0: none
+                    MSMdad v.2.0.0: none
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Base Layer Tile Size (6.2.6) -->
+        <ATTRIBUTE>
+            <Attribute_ID>6.2.6</Attribute_ID>
+            <Name>Base Layer Tile Size</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>base_layer_tile_size</Machine_Readable_Field_Name>
+            <Class>Technical</Class>
+            <CMMS_Entity>Image</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>The size of tiles within the base layer of the image in pixels (W, H).</Description>
+            <Explanation>-</Explanation>
+            <METAFLEX>SetAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>ATTRIBUTE SET</Data_Type>
+                <Unit>not allowed</Unit>
+                <Comment>-</Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>-</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.0: -
+                    MSMdad v.0.1.1: -
+                    MSMdad v.0.1.2: introduce child attributes, value specification, MetaFleX Type
+                    MSMdad v.1.0.0: none
+                    MSMdad v.2.0.0: none
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Width (6.2.6.1) -->
+        <ATTRIBUTE>
+            <Attribute_ID>6.2.6.1</Attribute_ID>
+            <Name>Width</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>width</Machine_Readable_Field_Name>
+            <Class>Technical</Class>
+            <CMMS_Entity>Image</CMMS_Entity>
+            <Parent_Attribute>6.2.6: Base Layer Tile Size</Parent_Attribute>
+            <Description>The width of a base layer tile in pixels.</Description>
+            <Explanation>-</Explanation>
+            <METAFLEX>MeasurementAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>U-INT</Data_Type>
+                <Unit>pixels</Unit>
+                <Comment>-</Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>NA not allowed</NA_Value>
+                <Comment>-</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.2: introduced
+                    MSMdad v.1.0.0: none
+                    MSMdad v.2.0.0: none
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Height (6.2.6.2) -->
+        <ATTRIBUTE>
+            <Attribute_ID>6.2.6.2</Attribute_ID>
+            <Name>Height</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>height</Machine_Readable_Field_Name>
+            <Class>Technical</Class>
+            <CMMS_Entity>Image</CMMS_Entity>
+            <Parent_Attribute>6.2.6: Base Layer Tile Size</Parent_Attribute>
+            <Description>The height of a base layer tile in pixels.</Description>
+            <Explanation>-</Explanation>
+            <METAFLEX>MeasurementAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>U-INT</Data_Type>
+                <Unit>pixels</Unit>
+                <Comment>-</Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>NA not allowed</NA_Value>
+                <Comment>-</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.2: introduced
+                    MSMdad v.1.0.0: none
+                    MSMdad v.2.0.0: none
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Image Shape (6.2.7) -->
+        <ATTRIBUTE>
+            <Attribute_ID>6.2.7</Attribute_ID>
+            <Name>Image Shape</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>image_shape</Machine_Readable_Field_Name>
+            <Class>Technical</Class>
+            <CMMS_Entity>Image</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>The shape of the image (H x W) in pixels. Z is given by ATTRIBUTE ID 6.2.28 Number of Focal Planes</Description>
+            <Explanation>-</Explanation>
+            <METAFLEX>SetAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>SET ATTRIBUTE</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>-</Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>-</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.0: -
+                    MSMdad v.0.1.1: -
+                    MSMdad v.0.1.2: introduce child attributes, value specification, MetaFleX Type
+                    MSMdad v.1.0.0: none
+                    MSMdad v.2.0.0: none
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Width (6.2.7.1) -->
+        <ATTRIBUTE>
+            <Attribute_ID>6.2.7.1</Attribute_ID>
+            <Name>Width</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>image_width</Machine_Readable_Field_Name>
+            <Class>Technical</Class>
+            <CMMS_Entity>Image</CMMS_Entity>
+            <Parent_Attribute>6.2.7: Image Shape</Parent_Attribute>
+            <Description>The width of the image in pixels.</Description>
+            <Explanation>-</Explanation>
+            <METAFLEX>MeasurementAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>U-INT</Data_Type>
+                <Unit>pixels</Unit>
+                <Comment>-</Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>NA not allowed</NA_Value>
+                <Comment>-</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.2: introduced
+                    MSMdad v.1.0.0: no
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Height (6.2.7.2) -->
+        <ATTRIBUTE>
+            <Attribute_ID>6.2.7.2</Attribute_ID>
+            <Name>Height</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>image_height</Machine_Readable_Field_Name>
+            <Class>Technical</Class>
+            <CMMS_Entity>Image</CMMS_Entity>
+            <Parent_Attribute>6.2.7: Image Shape</Parent_Attribute>
+            <Description>The height of the image in pixels.</Description>
+            <Explanation>-</Explanation>
+            <METAFLEX>MeasurementAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>U-INT</Data_Type>
+                <Unit>pixels</Unit>
+                <Comment>-</Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>NA not allowed</NA_Value>
+                <Comment>-</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.2: introduced
+                    MSMdad v.1.0.0: none
+                    MSMdad v.2.0.0: none
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Image Origin in Slide Coordinate System (6.2.8) -->
+        <ATTRIBUTE>
+            <Attribute_ID>6.2.8</Attribute_ID>
+            <Name>Image Origin in Slide Coordinate System</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>image_origin_in_slide_coordinate_system</Machine_Readable_Field_Name>
+            <Class>Technical</Class>
+            <CMMS_Entity>Image</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>An X and Y offset where the first pixel (e.g (1,1)) is positioned in reference to the Frame of Reference. (DICOM starts counting pixels starting at 1.)</Description>
+            <Explanation>DICOM Standard C.8.12.4.1.4 Total Pixel Matrix Origin Sequence and Image Orientation (Slide): Total Pixel Matrix Origin Sequence (0048,0008) specifies the location of the top leftmost pixel of the pixel matrix, and Image Orientation (Slide) (0048,0102) specifies the direction cosines of the first row and the first column of the pixel matrix, both with respect to the Slide Coordinate System Frame of Reference (see Section C.8.12.2)</Explanation>
+            <METAFLEX>SetAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>allowed</NA>
+                <NA_Value>'nil'</NA_Value>
+                <Data_Type>SET ATTRIBUTE</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>-</Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>The offset from the slide corner to the image origin.</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.0:
+                    MSMdad v.0.1.1:
+                    MSMdad v.0.1.2: introduce child attributes, value specification, MetaFleX Type, change of attribute name
+                    MSMdad v.1.0.0: none
+                    MSMdad v.2.0.0: none
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- X (6.2.8.1) -->
+        <ATTRIBUTE>
+            <Attribute_ID>6.2.8.1</Attribute_ID>
+            <Name>X</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>x</Machine_Readable_Field_Name>
+            <Class>Technical</Class>
+            <CMMS_Entity>Image</CMMS_Entity>
+            <Parent_Attribute>6.2.8: Image Origin in Slide Coordinate System</Parent_Attribute>
+            <Description>An X offset where the first pixel (e.g (1,1)) is positioned in reference to the Frame of Reference. (DICOM start counting pixels starting at 1.)</Description>
+            <Explanation>see ATTRIBUTE ID 6.2.8: Image Origin in Slide Coordinate System</Explanation>
+            <METAFLEX>MeasurementAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>allowed</NA>
+                <NA_Value>'nil'</NA_Value>
+                <Data_Type>FLOAT</Data_Type>
+                <Unit>millimeters</Unit>
+                <Comment>-</Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>0.0</NA_Value>
+                <Comment>-</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.2: introduced
+                    MSMdad v.1.0.0: none
+                    MSMdad v.2.0.0: none
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Y (6.2.8.2) -->
+        <ATTRIBUTE>
+            <Attribute_ID>6.2.8.2</Attribute_ID>
+            <Name>Y</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>y</Machine_Readable_Field_Name>
+            <Class>Technical</Class>
+            <CMMS_Entity>Image</CMMS_Entity>
+            <Parent_Attribute>6.2.8: Image Origin in Slide Coordinate System</Parent_Attribute>
+            <Description>An Y offset where the first pixel (e.g (1,1)) is positioned in reference to the Frame of Reference. (DICOM start counting pixels starting at 1.)</Description>
+            <Explanation>see ATTRIBUTE ID 6.2.8: Image Origin in Slide Coordinate System</Explanation>
+            <METAFLEX>MeasurementAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>allowed</NA>
+                <NA_Value>'nil'</NA_Value>
+                <Data_Type>FLOAT</Data_Type>
+                <Unit>millimeters</Unit>
+                <Comment>-</Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>0.0</NA_Value>
+                <Comment>-</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.2: introduced
+                    MSMdad v.1.0.0: none
+                    MSMdad v.2.0.0: none
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Pixel Spacing (6.2.9) -->
+        <ATTRIBUTE>
+            <Attribute_ID>6.2.9</Attribute_ID>
+            <Name>Pixel Spacing</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>pixel_spacing</Machine_Readable_Field_Name>
+            <Class>Technical</Class>
+            <CMMS_Entity>Image</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>Specifies the physical distance in the Image between the center of each pixel.</Description>
+            <Explanation>-</Explanation>
+            <METAFLEX>SetAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>'nil'</NA_Value>
+                <Data_Type>SET ATTRIBUTE</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>-</Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>In DICOM the resolution is specified for both x and y.</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.0: -
+                    MSMdad v.0.1.1: -
+                    MSMdad v.0.1.2: change of name, introduce child attributes, value specification, MetaFleX Type
+                    MSMdad v.1.0.0: none
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Vertical (6.2.9.1) -->
+        <ATTRIBUTE>
+            <Attribute_ID>6.2.9.1</Attribute_ID>
+            <Name>Vertical</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>vertical</Machine_Readable_Field_Name>
+            <Class>Technical</Class>
+            <CMMS_Entity>Image</CMMS_Entity>
+            <Parent_Attribute>6.2.9 Pixel Spacing</Parent_Attribute>
+            <Description>Specifies the vertical physical distance in the Image between the center of each pixel.</Description>
+            <Explanation>-</Explanation>
+            <METAFLEX>MeasurementAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>allowed</NA>
+                <NA_Value>'nil'</NA_Value>
+                <Data_Type>FLOAT</Data_Type>
+                <Unit>micrometers</Unit>
+                <Comment>-</Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>NA not allowed</NA_Value>
+                <Comment>-</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.2: introduced
+                    MSMdad v.1.0.0: none
+                    MSMdad v.2.0.0: none
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Horizontal (6.2.9.2) -->
+        <ATTRIBUTE>
+            <Attribute_ID>6.2.9.2</Attribute_ID>
+            <Name>Horizontal</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>horizontal</Machine_Readable_Field_Name>
+            <Class>Technical</Class>
+            <CMMS_Entity>Image</CMMS_Entity>
+            <Parent_Attribute>6.2.9 Pixel Spacing</Parent_Attribute>
+            <Description>Specifies the horizontal physical distance in the Image between the center of each pixel.</Description>
+            <Explanation>-</Explanation>
+            <METAFLEX>MeasurementAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>allowed</NA>
+                <NA_Value>'nil'</NA_Value>
+                <Data_Type>FLOAT</Data_Type>
+                <Unit>micrometers</Unit>
+                <Comment>-</Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>NA not allowed</NA_Value>
+                <Comment>-</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.2: introduced
+                    MSMdad v.1.0.0: none
+                    MSMdad v.2.0.0: none
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Depth of Field (6.2.10) -->
+        <ATTRIBUTE>
+            <Attribute_ID>6.2.10</Attribute_ID>
+            <Name>Depth of Field</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>depth_of_field</Machine_Readable_Field_Name>
+            <Class>Technical</Class>
+            <CMMS_Entity>Image</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>The depth of field of one focal plane in micrometer.</Description>
+            <Explanation>-</Explanation>
+            <METAFLEX>MeasurementAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>FLOAT</Data_Type>
+                <Unit>micrometers</Unit>
+                <Comment>-</Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not allowed</NA_Value>
+                <Comment>-</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.0: -
+                    MSMdad v.0.1.1: -
+                    MSMdad v.0.1.2: value specification, MetaFleX Type
+                    MSMdad v.1.0.0: none
+                    MSMdad v.2.0.0: none
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Optical Paths (6.2.11) -->
+        <ATTRIBUTE>
+            <Attribute_ID>6.2.11</Attribute_ID>
+            <Name>Optical Paths</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>optical_paths</Machine_Readable_Field_Name>
+            <Class>Technical</Class>
+            <CMMS_Entity>Image</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>Contains a set of ATTRIBUTE ID 6.2.11.1: Optical Paths</Description>
+            <Explanation>-</Explanation>
+            <METAFLEX>SetAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>SET ATTRIBUTE</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>-</Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>-</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.0: -
+                    MSMdad v.0.1.1: -
+                    MSMdad v.0.1.2: change of description, change of field name
+                    MSMdad v.1.0.0: none
+                    MSMdad v.2.0.0: none
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Optical Path (6.2.11.1) -->
+        <ATTRIBUTE>
+            <Attribute_ID>6.2.11.1</Attribute_ID>
+            <Name>Optical Path</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>optical_path</Machine_Readable_Field_Name>
+            <Class>Technical</Class>
+            <CMMS_Entity>Image</CMMS_Entity>
+            <Parent_Attribute>6.2.11 Optical Paths</Parent_Attribute>
+            <Description>
+                Defines an optical path used for the scanning process of the image. Contains:
+                • ATTRIBUTE ID 6.2.11.1.1: Optical Path Identifier
+                • ATTRIBUTE ID 6.2.11.1.2: Color Space
+                • ATTRIBUTE ID 6.2.11.1.3: Color Depth
+                • ATTRIBUTE ID 6.2.11.1.4: Illumination
+            </Description>
+            <Explanation>-</Explanation>
+            <METAFLEX>SetAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>SET ATTRIBUTE</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>-</Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>-</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.0: -
+                    MSMdad v.0.1.1: -
+                    MSMdad v.0.1.2: change of ATTRIBUTE ID, change of description
+                    MSMdad v.1.0.0: none
+                    MSMdad v.2.0.0: none
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Optical Path Identifier (6.2.11.1.1) -->
+        <ATTRIBUTE>
+            <Attribute_ID>6.2.11.1.1</Attribute_ID>
+            <Name>Optical Path Identifier</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>optical_path_identifier</Machine_Readable_Field_Name>
+            <Class>Technical</Class>
+            <CMMS_Entity>Image</CMMS_Entity>
+            <Parent_Attribute>6.2.11.1 Optical Path</Parent_Attribute>
+            <Description>An identifier of the optical path.</Description>
+            <Explanation>
+                This might be a generic identifier like '0' or an identifier stating the channel of an
+                immunofluorescence image explicitly (e.g. 'FITC').
+            </Explanation>
+            <METAFLEX>StringAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>
+                    If there is only one optical path it must be set to the corresponding CODED VALUE
+                    relating to ATTRIBUTE ID 6.2.11.1.1.3.1: Illumination Type Code Sequence Attribute.
+                    If there is more than one optical path the default values for the identifiers are ascending
+                    numbers (i.e. '0'...'N'). However, the submitter can choose custom identifiers (e.g. 'FITC').
+                </Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>NA not allowed</NA_Value>
+                <Comment>
+                    The identifier of the optical path in the DICOM file. E.g. '0' or 'FITC'. So that the optical
+                    path in the metadata can be related to the different optical paths in the image.
+                </Comment>
+                <Change_Log>
+                    MSMdad v.0.1.2: introduced
+                    MSMdad v.1.0.0: none
+                    MSMdad v.2.0.0: none
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Color Space (6.2.11.1.2) -->
+        <ATTRIBUTE>
+            <Attribute_ID>6.2.11.1.2</Attribute_ID>
+            <Name>Color Space</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>color_space</Machine_Readable_Field_Name>
+            <Class>Technical</Class>
+            <CMMS_Entity>Image</CMMS_Entity>
+            <Parent_Attribute>6.2.11.1 Optical Path</Parent_Attribute>
+            <Description>The color space of the image (e.g. RGB).</Description>
+            <Explanation>-</Explanation>
+            <METAFLEX>StringAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>
+                    CONTROLLED VOCABULARY:
+                    • MONOCHROME2
+                    • RGBYBR
+                </Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>NA not allowed</NA_Value>
+                <Comment>-</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.0: -
+                    MSMdad v.0.1.1: -
+                    MSMdad v.0.1.2: change of ATTRIBUTE ID, value specification
+                    MSMdad v.1.0.0: none
+                    MSMdad v.2.0.0: none
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Color Depth (6.2.11.1.3) -->
+        <ATTRIBUTE>
+            <Attribute_ID>6.2.11.1.3</Attribute_ID>
+            <Name>Color Depth</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>color_depth</Machine_Readable_Field_Name>
+            <Class>Technical</Class>
+            <CMMS_Entity>Image</CMMS_Entity>
+            <Parent_Attribute>6.2.11.1 Optical Path</Parent_Attribute>
+            <Description>The number of bits per channel of a pixel.</Description>
+            <Explanation>-</Explanation>
+            <METAFLEX>NumericAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>U-INT</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>-</Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>NA not allowed</NA_Value>
+                <Comment>-</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.0: -
+                    MSMdad v.0.1.1: -
+                    MSMdad v.0.1.2: change of ATTRIBUTE ID, value specification, MetaFleX Type
+                    MSMdad v.1.0.0: none
+                    MSMdad v.2.0.0: none
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Illumination (6.2.11.1.4) -->
+        <ATTRIBUTE>
+            <Attribute_ID>6.2.11.1.4</Attribute_ID>
+            <Name>Illumination</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>illumination</Machine_Readable_Field_Name>
+            <Class>Technical</Class>
+            <CMMS_Entity>Image</CMMS_Entity>
+            <Parent_Attribute>6.2.11.1 Optical Path</Parent_Attribute>
+            <Description>
+                Information about the Illumination used during the scanning processes. Contains:
+                • ATTRIBUTE ID 6.2.11.1.4.1: Type
+                • ATTRIBUTE ID 6.2.11.1.4.2: Wavelength
+                • ATTRIBUTE ID 6.2.11.1.4.3: Color
+            </Description>
+            <Explanation>-</Explanation>
+            <METAFLEX>SetAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>SET ATTRIBUTE</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>-</Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>-</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.0: -
+                    MSMdad v.0.1.1: -
+                    MSMdad v.0.1.2: change of ATTRIBUTE ID, introduced child attributes
+                    MSMdad v.1.0.0: none
+                    MSMdad v.2.0.0: none
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Type (6.2.11.1.4.1) -->
+        <ATTRIBUTE>
+            <Attribute_ID>6.2.11.1.4.1</Attribute_ID>
+            <Name>Type</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>type</Machine_Readable_Field_Name>
+            <Class>Technical</Class>
+            <CMMS_Entity>Image</CMMS_Entity>
+            <Parent_Attribute>6.2.11.1.4 Illumination</Parent_Attribute>
+            <Description>The type of illumination used in the scan.</Description>
+            <Explanation>An Attribute within the DICOM specific field: Illumination Type Code Sequence (0022,0016). Definition: specifies the type of illumination of the imaging target. This Attribute may include multiple Items, as some techniques may involve multiple methods, or some method identifiers may not be completely descriptive. (DICOM Standard C.8.12.5.1.2 Illumination Type Code Sequence). The set of possible code values are defined as per DICOM PS3.16 2021e - Content Mapping Resource, Table CID 8123. Microscopy Illumination Method.</Explanation>
+            <METAFLEX>StringAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>
+                    CONTROLLED VOCABULARY:
+                    • Transmission illumination
+                    • Reflection illumination
+                    • Epifluorescence illumination
+                    • Brightfield illumination
+                    • Darkfield illumination
+                    • Oblique illumination
+                    • Phase contrast illumination
+                    • Differential interference contrast
+                    • Total internal reflection fluorescence
+                </Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>NA not allowed</NA_Value>
+                <Comment>-</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.0: -
+                    MSMdad v.0.1.1: -
+                    MSMdad v.0.1.2: change of ATTRIBUTE ID, change of name
+                    MSMdad v.1.0.0: none
+                    MSMdad v.2.0.0: none
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Wavelength (6.2.11.1.4.2) -->
+        <ATTRIBUTE>
+            <Attribute_ID>6.2.11.1.4.2</Attribute_ID>
+            <Name>Wavelength</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>wavelength</Machine_Readable_Field_Name>
+            <Class>Technical</Class>
+            <CMMS_Entity>Image</CMMS_Entity>
+            <Parent_Attribute>6.2.11.1.4 Illumination</Parent_Attribute>
+            <Description>Nominal wavelength of the illuminator in nm. Must only be provided if ATTRIBUTE ID 6.2.11.1.4.3: Color has not been stated.</Description>
+            <Explanation>-</Explanation>
+            <METAFLEX>MeasurementAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>FLOAT</Data_Type>
+                <Unit>nanometers</Unit>
+                <Comment>-</Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>NA not allowed</NA_Value>
+                <Comment>-</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.0: -
+                    MSMdad v.0.1.1: -
+                    MSMdad v.0.1.2: change of ATTRIBUTE ID, MetaFleX Type
+                    MSMdad v.1.0.0: none
+                    MSMdad v.2.0.0: none
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Color (6.2.11.1.4.3) -->
+        <ATTRIBUTE>
+            <Attribute_ID>6.2.11.1.4.3</Attribute_ID>
+            <Name>Color</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>color</Machine_Readable_Field_Name>
+            <Class>Technical</Class>
+            <CMMS_Entity>Image</CMMS_Entity>
+            <Parent_Attribute>6.2.11.1.4 Illumination</Parent_Attribute>
+            <Description>Color of the illuminator defined by a code value. Must only be provided if ATTRIBUTE ID 6.2.11.1.4.2: Wavelength has not been stated.</Description>
+            <Explanation>DICOM specific field defined as: (0048,0108) Illumination Color Code Sequence Attribute within the DICOM Standard. The set of possible code values are defined as per DICOM PS3.16 2021e - Content Mapping Resource, Table CID 8122. Microscopy Illuminator and Sensor Color.</Explanation>
+            <METAFLEX>StringAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>
+                    CONTROLLED VOCABULARY
+                    • Full Spectrum
+                    • Infrared
+                    • Red
+                    • Green
+                    • Blue
+                    • Ultraviolet
+                </Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>NA not allowed</NA_Value>
+                <Comment>-</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.0: -
+                    MSMdad v.0.1.1: -
+                    MSMdad v.0.1.2: change of ATTRIBUTE ID, change of name
+                    MSMdad v.1.0.0: none
+                    MSMdad v.2.0.0: none
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Image Compressions (6.2.12) -->
+        <ATTRIBUTE>
+            <Attribute_ID>6.2.12</Attribute_ID>
+            <Name>Image Compressions</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>image_compressions</Machine_Readable_Field_Name>
+            <Class>Technical</Class>
+            <CMMS_Entity>Image</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>This sequence lists all image compression steps that were performed on the original image one after another. All types of compressions must be stated, including lossless compressions. If no compression has been performed the attribute can be empty. It is mandatory to state at least the compression that can be extracted from the original image metadata (e.g. before DICOM conversion). If prior compressions of the file are unknown, they can be omitted, however, it is highly encouraged to be as thorough as possible. Only required if ATTRIBUTE ID 6.2.13: Compression Status indicates that the image was compressed.</Description>
+            <Explanation>-</Explanation>
+            <METAFLEX>SetAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>SET ATTRIBUTE</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>Can be omitted if ATTRIBUTE ID 6.2.13: Compression Status == 'NOT COMPRESSED'</Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>-</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.2: introduced
+                    MSMdad v.1.0.0: none
+                    MSMdad v.2.0.0: none
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Image Compression (6.2.12.1) -->
+        <ATTRIBUTE>
+            <Attribute_ID>6.2.12.1</Attribute_ID>
+            <Name>Image Compression</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>image_compression</Machine_Readable_Field_Name>
+            <Class>Technical</Class>
+            <CMMS_Entity>Image</CMMS_Entity>
+            <Parent_Attribute>6.2.12: Image Compressions</Parent_Attribute>
+            <Description>Image Compression contains information (ATTRIBUTE ID 6.2.12.1.1 Ratio and ATTRIBUTE ID 6.2.12.1.2: Method) about the compression ratio and method used within a given compression step of the image. Only required if ATTRIBUTE ID 6.2.13: Compression Status indicates that the image was compressed.</Description>
+            <Explanation>-</Explanation>
+            <METAFLEX>SetAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>SET ATTRIBUTE</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>Can be omitted if ATTRIBUTE ID 6.2.13: Compression Status == 'NOT COMPRESSED'</Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>-</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.2: introduced
+                    MSMdad v.1.0.0: none
+                    MSMdad v.2.0.0: none
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Ratio (6.2.12.1.1) -->
+        <ATTRIBUTE>
+            <Attribute_ID>6.2.12.1.1</Attribute_ID>
+            <Name>Ratio</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>ratio</Machine_Readable_Field_Name>
+            <Class>Technical</Class>
+            <CMMS_Entity>Image</CMMS_Entity>
+            <Parent_Attribute>6.2.12.1 Image Compression</Parent_Attribute>
+            <Description>Describes the approximate compression ratio that has been applied to this image including lossy and lossless compressions. Only required if ATTRIBUTE ID 6.2.13: Compression Status indicates that the image was compressed.</Description>
+            <Explanation>-</Explanation>
+            <METAFLEX>NumericAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>FLOAT</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>Can be omitted if ATTRIBUTE ID 6.2.13: Compression Status == 'NOT COMPRESSED'</Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>NA not allowed</NA_Value>
+                <Comment>-</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.0: -
+                    MSMdad v.0.1.1: -
+                    MSMdad v.0.1.2: change of ATTRIBUTE ID, change of name, MetaFleX Type, value specification, change of description
+                    MSMdad v.1.0.0: none
+                    MSMdad v.2.0.0: none
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Method (6.2.12.1.2) -->
+        <ATTRIBUTE>
+            <Attribute_ID>6.2.12.1.2</Attribute_ID>
+            <Name>Method</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>method</Machine_Readable_Field_Name>
+            <Class>Technical</Class>
+            <CMMS_Entity>Image</CMMS_Entity>
+            <Parent_Attribute>6.2.12.1 Image Compression</Parent_Attribute>
+            <Description>The standard or algorithm used for compression. Only required if the Image has been compressed.</Description>
+            <Explanation>The defined terms relate to the DICOM Standard: C.7.6.1.1.5.1 Lossy Image Compression Method.</Explanation>
+            <METAFLEX>StringAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>
+                    Can be omitted if ATTRIBUTE ID 6.2.13: Compression Status == 'NOT COMPRESSED'
+                    If LOSSLESS: State the used compression method
+                    If LOSSY COMPRESSION: One of the below DEFINED TERMS
+                    • JPEG Lossy Compression
+                    • JPEG-LS Near-lossless Compression
+                    • JPEG 2000 Irreversible Compression
+                    • MPEG2 Compression
+                    • MPEG-4 AVC/H.264 Compression
+                    • HEVC/H.265 Lossy Compression
+                </Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>NA not allowed</NA_Value>
+                <Comment>-</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.0: -
+                    MSMdad v.0.1.1: -
+                    MSMdad v.0.1.2: change of ATTRIBUTE ID, change of name, value specification, change of description
+                    MSMdad v.1.0.0: none
+                    MSMdad v.2.0.0: none
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Compression Status (6.2.13) -->
+        <ATTRIBUTE>
+            <Attribute_ID>6.2.13</Attribute_ID>
+            <Name>Compression Status</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>compression_status</Machine_Readable_Field_Name>
+            <Class>Technical</Class>
+            <CMMS_Entity>Image</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>
+                A status indicating whether the image is compressed or not. In case it was compressed if
+                it is a lossy or lossless compression. If the image was compressed once by using a lossy
+                compression this status must remain lossy even when the image was compressed
+                lossless afterwards.
+            </Description>
+            <Explanation>-</Explanation>
+            <METAFLEX>StringAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>
+                    CONTROLLED VOCABULARY:
+                    • NOT COMPRESSED
+                    • LOSSLESS
+                    • LOSSY
+                </Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>NA not allowed</NA_Value>
+                <Comment>-</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.0: -
+                    MSMdad v.0.1.1: -
+                    MSMdad v.0.1.2: change of ATTRIBUTE ID
+                    MSMdad v.1.0.0: none
+                    MSMdad v.2.0.0: none
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- BP Image Type (6.2.14) -->
+        <ATTRIBUTE>
+            <Attribute_ID>6.2.14</Attribute_ID>
+            <Name>BP Image Type</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>bp_image_type</Machine_Readable_Field_Name>
+            <Class>Technical</Class>
+            <CMMS_Entity>Image</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>The BP Type of an Image.</Description>
+            <Explanation>
+                The type of the Image. Currently only one type (i.e. WSI Brightfield) has been specified.
+                This attribute will be used to denote different types (e.g. fluorescence, photographs (e.g.
+                macroscopy), phase contrast etc.) in future. These types will be introduced on demand
+                once images of a certain type should be submitted to the repository deviating from the
+                current established WSI Brightfield type.
+            </Explanation>
+            <METAFLEX>StringAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>
+                    CONTROLLED VOCABULARY:
+                    • WSI Brightfield
+                </Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>-</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.0: -
+                    MSMdad v.0.1.1: -
+                    MSMdad v.0.1.2: change of ATTRIBUTE ID, change of explanation
+                    MSMdad v.1.0.0: none
+                    MSMdad v.2.0.0: none
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Has Overview (6.2.15) -->
+        <ATTRIBUTE>
+            <Attribute_ID>6.2.15</Attribute_ID>
+            <Name>Has Overview</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>has_overview</Machine_Readable_Field_Name>
+            <Class>Technical</Class>
+            <CMMS_Entity>Image</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>
+                Indicates if the image contains an image file of a photo of the entire slide.
+                CAVE: The label on the slide must be excluded from the overview if the Dataset is
+                considered to be anonymized or pseudonymized.
+            </Description>
+            <Explanation>-</Explanation>
+            <METAFLEX>StringAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>
+                    CONTROLLED VOCABULARY:
+                    • True
+                    • False
+                </Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>-</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.0:
+                    MSMdad v.0.1.1:
+                    MSMdad v.0.1.2: change of ATTRIBUTE ID, change of description, change of value specification
+                    MSMdad v.1.0.0: none
+                    MSMdad v.2.0.0: none
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Has Label (6.2.16) -->
+        <ATTRIBUTE>
+            <Attribute_ID>6.2.16</Attribute_ID>
+            <Name>Has Label</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>has_label</Machine_Readable_Field_Name>
+            <Class>Technical</Class>
+            <CMMS_Entity>Image</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>
+                Indicates if the image contains an image file of a photo of the slide label.
+                CAVE: Must be excluded if the Dataset is considered to be anonymized or pseudonymized.
+            </Description>
+            <Explanation>-</Explanation>
+            <METAFLEX>StringAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>
+                    CONTROLLED VOCABULARY
+                    • True
+                    • False
+                </Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>-</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.0:
+                    MSMdad v.0.1.1:
+                    MSMdad v.0.1.2: change of ATTRIBUTE ID, change of description, change of value specification
+                    MSMdad v.1.0.0: none
+                    MSMdad v.2.0.0: none
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- TMA Status (6.2.17) -->
+        <ATTRIBUTE>
+            <Attribute_ID>6.2.17</Attribute_ID>
+            <Name>TMA Status</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>tma_status</Machine_Readable_Field_Name>
+            <Class>Technical</Class>
+            <CMMS_Entity>Image</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>Indicates whether the scanned Image is a Tissue Micro Array (TMA).</Description>
+            <Explanation>-</Explanation>
+            <METAFLEX>StringAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>
+                    CONTROLLED VOCABULARY
+                    • True
+                    • False
+                </Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>-</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.0: -
+                    MSMdad v.0.1.1: -
+                    MSMdad v.0.1.2: change of ATTRIBUTE ID, change of value specification
+                    MSMdad v.1.0.0: none
+                    MSMdad v.2.0.0: none
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Focus Method (6.2.18) -->
+        <ATTRIBUTE>
+            <Attribute_ID>6.2.18</Attribute_ID>
+            <Name>Focus Method</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>focus_method</Machine_Readable_Field_Name>
+            <Class>Technical</Class>
+            <CMMS_Entity>Image</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>The type of focus method used in the scan.</Description>
+            <Explanation>-</Explanation>
+            <METAFLEX>StringAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>
+                    CONTROLLED VOCABULARY
+                    • AUTO
+                    • MANUAL
+                </Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>NA not allowed</NA_Value>
+                <Comment>-</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.0: -
+                    MSMdad v.0.1.1: -
+                    MSMdad v.0.1.2: change of ATTRIBUTE ID
+                    MSMdad v.1.0.0: none
+                    MSMdad v.2.0.0: none
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Extended Depth of Field (6.2.19) -->
+        <ATTRIBUTE>
+            <Attribute_ID>6.2.19</Attribute_ID>
+            <Name>Extended Depth of Field</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>extended_depth_of_field</Machine_Readable_Field_Name>
+            <Class>Technical</Class>
+            <CMMS_Entity>Image</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>
+                Indicates if image pixels were created through combining of image acquisition at multiple
+                focal planes (focus stacking). Contains:
+                • ATTRIBUTE ID 6.2.19.1 Number of Focal Planes
+                • ATTRIBUTE ID 6.2.19.2 Distance Between Focal Planes
+            </Description>
+            <Explanation>-</Explanation>
+            <METAFLEX>SetAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>SET ATTRIBUTE</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>If extended depth of field was not used this attribute must be niled.</Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>NA not allowed</NA_Value>
+                <Comment>-</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.0: -
+                    MSMdad v.0.1.1: -
+                    MSMdad v.0.1.2: change of ATTRIBUTE ID, change of MetaFleX Type
+                    MSMdad v.1.0.0: none
+                    MSMdad v.2.0.0: none
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Number of Focal Planes (6.2.19.1) -->
+        <ATTRIBUTE>
+            <Attribute_ID>6.2.19.1</Attribute_ID>
+            <Name>Number of Focal Planes</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>number_of_focal_planes</Machine_Readable_Field_Name>
+            <Class>Technical</Class>
+            <CMMS_Entity>Image</CMMS_Entity>
+            <Parent_Attribute>6.2.19 Extended Depth of Field</Parent_Attribute>
+            <Description>
+                The number of focal planes scanned. Required if ATTRIBUTE ID 6.2.19: Extended Depth of
+                Field exists.
+            </Description>
+            <Explanation>-</Explanation>
+            <METAFLEX>NumericAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>U-INT</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>Can be omitted if ATTRIBUTE ID 6.2.19: Extended Depth of Field == 'nil'.</Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>NA not allowed</NA_Value>
+                <Comment>-</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.0:
+                    MSMdad v.0.1.1:
+                    MSMdad v.0.1.2: change of ATTRIBUTE ID, MetaFleX Type, value specification
+                    MSMdad v.1.0.0: none
+                    MSMdad v.2.0.0: none
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Distance Between Focal Planes (6.2.19.2) -->
+        <ATTRIBUTE>
+            <Attribute_ID>6.2.19.2</Attribute_ID>
+            <Name>Distance Between Focal Planes</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>distance_between_focal_planes</Machine_Readable_Field_Name>
+            <Class>Technical</Class>
+            <CMMS_Entity>Image</CMMS_Entity>
+            <Parent_Attribute>6.2.19 Extended Depth of Field</Parent_Attribute>
+            <Description>
+                Distance between acquisition focal planes used for extended depth of field, in
+                micrometers. Required if ATTRIBUTE ID 6.2.19: Extended Depth of Field exists.
+            </Description>
+            <Explanation>-</Explanation>
+            <METAFLEX>MeasurementAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>FLOAT</Data_Type>
+                <Unit>micrometers</Unit>
+                <Comment>Can be omitted if ATTRIBUTE ID 6.2.19: Extended Depth of Field == 'nil'.</Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>NA not allowed</NA_Value>
+                <Comment>-</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.0: -
+                    MSMdad v.0.1.1: -
+                    MSMdad v.0.1.2: change of ATTRIBUTE ID, MetaFleX Type, value specification
+                    MSMdad v.1.0.0: none
+                    MSMdad v.2.0.0: none
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Color Profile (6.2.20) -->
+        <ATTRIBUTE>
+            <Attribute_ID>6.2.20</Attribute_ID>
+            <Name>Color Profile</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>color_profile</Machine_Readable_Field_Name>
+            <Class>Technical</Class>
+            <CMMS_Entity>Image</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>
+                States whether there is no color profile or if the color profile is provided by the
+                manufacturer or if it has been calibrated.
+            </Description>
+            <Explanation>
+                This describes if the ICC provided profile of the image is:
+                MISSING (e.g. was missing from the scanner.)
+                OR
+                NOT EXTRACTABLE (e.g. in cases where there is a ICC profile in the native file, however,
+                it can not be extracted.)
+                OR
+                MANUFACTURER SPECIFIC (e.g. was provided by the manufacturer)
+                OR
+                CUSTOM (e.g. was created specifically for the scanner by the means of calibration)
+            </Explanation>
+            <METAFLEX>StringAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>
+                    CONTROLLED VOCABULARY
+                    • MISSING
+                    • NOT EXTRACTABLE
+                    • MANUFACTURE SPECIFIC
+                    • CUSTOM
+                </Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>NA not allowed</NA_Value>
+                <Comment>-</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.0: -
+                    MSMdad v.0.1.1: -
+                    MSMdad v.0.1.2: change of ATTRIBUTE ID, value specification
+                    MSMdad v.1.0.0: none
+                    MSMdad v.2.0.0: none
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Image Orientation In Slide Coordinate System (6.2.21) -->
+        <ATTRIBUTE>
+            <Attribute_ID>6.2.21</Attribute_ID>
+            <Name>Image Orientation In Slide Coordinate System</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>image_orientation_in_slide_coordinate_system</Machine_Readable_Field_Name>
+            <Class>Technical</Class>
+            <CMMS_Entity>Image</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>The orientation of the image in terms of the Frame of Reference.</Description>
+            <Explanation>
+                DICOM specific field defined as: Total Pixel Matrix Origin Sequence (0048,0008). The
+                direction cosines of the first row and the first column of the total pixel matrix with
+                respect to the Slide Coordinate System Frame of Reference. See Section C.8.12.4.1.4.
+                The current Specification does not consider a rotation in the z-axis. This might change in
+                future if sufficient use cases arise.
+            </Explanation>
+            <METAFLEX>SetAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>SET ATTRIBUTE</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>-</Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>-</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.0: -
+                    MSMdad v.0.1.1: -
+                    MSMdad v.0.1.2: change of ATTRIBUTE ID, introduce child attributes, MetaFleX Type, change of name
+                    MSMdad v.1.0.0: none
+                    MSMdad v.2.0.0: none
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Image Row X Component (6.2.21.1) -->
+        <ATTRIBUTE>
+            <Attribute_ID>6.2.21.1</Attribute_ID>
+            <Name>Image Row X Component</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>image_row_x_component</Machine_Readable_Field_Name>
+            <Class>Technical</Class>
+            <CMMS_Entity>Image</CMMS_Entity>
+            <Parent_Attribute>6.2.21: image_orientation_in_slide_coordinate_system</Parent_Attribute>
+            <Description>
+                The X component of the direction cosine of the first row in the image with respect to
+                the slide coordinate system.
+            </Description>
+            <Explanation>-</Explanation>
+            <METAFLEX>NumericAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>FLOAT</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>Can be omitted if parent attribute is 'nil'</Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>0</NA_Value>
+                <Comment>-</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.2: introduced
+                    MSMdad v.1.0.0: none
+                    MSMdad v.2.0.0: none
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Image Row Y Component (6.2.21.2) -->
+        <ATTRIBUTE>
+            <Attribute_ID>6.2.21.2</Attribute_ID>
+            <Name>Image Row Y Component</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>image_row_y_component</Machine_Readable_Field_Name>
+            <Class>Technical</Class>
+            <CMMS_Entity>Image</CMMS_Entity>
+            <Parent_Attribute>6.2.21: image_orientation_in_slide_coordinate_system</Parent_Attribute>
+            <Description>
+                The Y component of the direction cosine of the first row in the image with respect to
+                the slide coordinate system.
+            </Description>
+            <Explanation>-</Explanation>
+            <METAFLEX>NumericAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>FLOAT</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>Can be omitted if parent attribute is 'nil'</Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>1</NA_Value>
+                <Comment>-</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.2: introduced
+                    MSMdad v.1.0.0: none
+                    MSMdad v.2.0.0: none
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Image Column X Component (6.2.21.3) -->
+        <ATTRIBUTE>
+            <Attribute_ID>6.2.21.3</Attribute_ID>
+            <Name>Image Column X Component</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>image_column_x_component</Machine_Readable_Field_Name>
+            <Class>Technical</Class>
+            <CMMS_Entity>Image</CMMS_Entity>
+            <Parent_Attribute>6.2.21: image_orientation_in_slide_coordinate_system</Parent_Attribute>
+            <Description>
+                The X component of the direction cosine of the first column in the image with respect to
+                the slide coordinate system.
+            </Description>
+            <Explanation>-</Explanation>
+            <METAFLEX>NumericAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>FLOAT</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>Can be omitted if parent attribute is 'nil'</Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>1</NA_Value>
+                <Comment>-</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.2: introduced
+                    MSMdad v.1.0.0: none
+                    MSMdad v.2.0.0: none
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Image Column Y Component (6.2.21.4) -->
+        <ATTRIBUTE>
+            <Attribute_ID>6.2.21.4</Attribute_ID>
+            <Name>Image Column Y Component</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>image_column_y_component</Machine_Readable_Field_Name>
+            <Class>Technical</Class>
+            <CMMS_Entity>Image</CMMS_Entity>
+            <Parent_Attribute>6.2.21: image_orientation_in_slide_coordinate_system</Parent_Attribute>
+            <Description>
+                The Y component of the direction cosine of the first column in the image with respect to
+                the slide coordinate system.
+            </Description>
+            <Explanation>-</Explanation>
+            <METAFLEX>NumericAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>FLOAT</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>Can be omitted if parent attribute is 'nil'</Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>0</NA_Value>
+                <Comment>-</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.2: introduced
+                    MSMdad v.1.0.0: none
+                    MSMdad v.2.0.0: none
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Biological Being Identifier Present in Image (6.2.22) -->
+        <ATTRIBUTE>
+            <Attribute_ID>6.2.22</Attribute_ID>
+            <Name>Biological Being Identifier Present in Image</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>biological_being_identifier_present_in_image</Machine_Readable_Field_Name>
+            <Class>Technical</Class>
+            <CMMS_Entity>Image</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>A status indicating if an identifier of a Biological Being is present within the image.</Description>
+            <Explanation>-</Explanation>
+            <METAFLEX>StringAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>
+                    CONTROLLED VOCABULARY
+                    • True
+                    • False
+                </Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>NA not allowed</NA_Value>
+                <Comment>-</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.0:
+                    MSMdad v.0.1.1:
+                    MSMdad v.0.1.2: change of ATTRIBUTE ID, change of value specification
+                    MSMdad v.1.0.0: none
+                    MSMdad v.2.0.0: none
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+    </Attributes>
+</Entity>

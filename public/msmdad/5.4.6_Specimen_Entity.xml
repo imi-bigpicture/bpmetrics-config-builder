@@ -1,0 +1,456 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Entity id="5.4.6" name="Specimen Entity">
+    <Number>5.4.6</Number>
+    <Name>Specimen Entity</Name>
+    <Attributes>
+        <!-- Specimen ID (3.1.1) -->
+        <ATTRIBUTE>
+            <Attribute_ID>3.1.1</Attribute_ID>
+            <Name>Specimen ID</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>specimen_id</Machine_Readable_Field_Name>
+            <Class>Housekeeping</Class>
+            <CMMS_Entity>Specimen</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>A unique identifier of the Specimen.</Description>
+            <Explanation>The uniqueness refers to the context of the dataset. Defined by the data submitter.</Explanation>
+            <METAFLEX>ObjectType Attribute “alias” AND/OR “accession”</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>
+                    CAVEAT:
+                    During dataset creation the submitter must use the Object Attribute “alias” to state a
+                    unique identifier, however, during the submission process that repository automatically
+                    generates a unique accession ID for each submitted CMMS Entity. This accession ID will
+                    be automatically injected into the XML file using the xs:attribute “accession” by the
+                    repository during the upload process.
+                    Once a accession ID has been generated all references to a given CMMS Entity must use
+                    the xs:attribute “accession” and not the xs:attribute “alias”.
+                </Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.0: -
+                    MSMdad v.0.1.1: -
+                    MSMdad v.0.1.2: value specification
+                    MSMdad v.1.0.0: none
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Extracted From (3.1.2) -->
+        <ATTRIBUTE>
+            <Attribute_ID>3.1.2</Attribute_ID>
+            <Name>Extracted From</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>EXTRACTED_FROM</Machine_Readable_Field_Name>
+            <Class>Housekeeping</Class>
+            <CMMS_Entity>Specimen</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>The ID of the Biological Being the Specimen was extracted from.</Description>
+            <Explanation>-</Explanation>
+            <METAFLEX>ReferenceType</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>
+                    CAVEAT:
+                    During dataset creation the xs:attribute “alias” must be used to reference a given CMMS
+                    Entity if the given CMMS Entity has not received an accession ID by the repository yet
+                    (I.e. Non-Complementary Datasets). However, during the submission process the
+                    repository will assign unique accession IDs to every CMMS Entity and internal references
+                    will be updated using the newly generated accession IDs by injecting them into the XML
+                    files.
+                    Once an accession ID has been assigned to a given CMMS Entity the xs:attribute
+                    “accession” must be used to reference the given CMMS Entity. This especially relates to
+                    Complementary Datasets, where only the xs:attribute “accession” must be used (also
+                    during data set creation) when an accession ID exists for a given CMMS Entity.
+                </Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.0: -
+                    MSMdad v.0.1.1: -
+                    MSMdad v.0.1.2: value specification, change in spelling
+                    MSMdad v.1.0.0: none
+                    MSMdad v.2.0.0: none
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Part of Case (3.1.3) -->
+        <ATTRIBUTE>
+            <Attribute_ID>3.1.3</Attribute_ID>
+            <Name>Part of Case</Name>
+            <Inclusion_Status_Context>specific [Clinical]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>PART_OF_CASE</Machine_Readable_Field_Name>
+            <Class>Housekeeping</Class>
+            <CMMS_Entity>Specimen</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>The ID of the Case the Specimen is part of.</Description>
+            <Explanation>-</Explanation>
+            <METAFLEX>ReferenceType</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>
+                    CAVEAT:
+                    During dataset creation the xs:attribute “alias” must be used to reference a given CMMS
+                    Entity if the given CMMS Entity has not received an accession ID by the repository yet
+                    (I.e. Non-Complementary Datasets). However, during the submission process the
+                    repository will assign unique accession IDs to every CMMS Entity and internal references
+                    will be updated using the newly generated accession IDs by injecting them into the XML
+                    files.
+                    Once an accession ID has been assigned to a given CMMS Entity the xs:attribute
+                    “accession” must be used to reference the given CMMS Entity. This especially relates to
+                    Complementary Datasets, where only the xs:attribute “accession” must be used (also
+                    during data set creation) when an accession ID exists for a given CMMS Entity.
+                </Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.2: Introduced, Inclusion status and inclusion context
+                    MSMdad v.1.0.0: none
+                    MSMdad v.2.0.0: none
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Extraction Method (3.2.1) -->
+        <ATTRIBUTE>
+            <Attribute_ID>3.2.1</Attribute_ID>
+            <Name>Extraction Method</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>extraction_method</Machine_Readable_Field_Name>
+            <Class>Technical</Class>
+            <CMMS_Entity>Specimen</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>The method of extraction (e.g. biopsy, excision, smear etc.).</Description>
+            <Explanation>-</Explanation>
+            <METAFLEX>CodeAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>Allowed for clinical; not allowed for non-clinical</NA>
+                <NA_Value>'nil'</NA_Value>
+                <Data_Type>CODE ATTRIBUTE</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>
+                    Schema:
+                    • SNOMED CT ‘Removal (procedure)’ Concept and children
+                    • SNOMED CT ‘Autopsy pathology procedure AND/OR service (procedure)’ Concept and children
+                    
+                    RECOMMENDED LIST:
+                    • 86273004 | Biopsy (procedure)
+                    • 128304007 | Surgical extraction (procedure)
+                    • 29240004 | Autopsy examination (procedure) / synm. Necropsy
+                    
+                    DEFAULT VALUE FOR NON-CLINICAL: Autopsy/Necropsy
+                </Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.0: -
+                    MSMdad v.0.1.1: -
+                    MSMdad v.0.1.2: value specification, METAFLEX, N/A value
+                    MSMdad v.1.0.0: none
+                    MSMdad v.2.0.0: none
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Specimen Type (3.2.2) -->
+        <ATTRIBUTE>
+            <Attribute_ID>3.2.2</Attribute_ID>
+            <Name>Specimen Type</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>specimen_type</Machine_Readable_Field_Name>
+            <Class>Technical</Class>
+            <CMMS_Entity>Specimen</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>The type of the specimen (e.g. histology, cytology etc.).</Description>
+            <Explanation>-</Explanation>
+            <METAFLEX>CodeAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>allowed</NA>
+                <NA_Value>'nil'</NA_Value>
+                <Data_Type>CODE ATTRIBUTE</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>
+                    Schema:
+                    • SNOMED CT ‘Body substance specimen (specimen)’
+                    
+                    RECOMMENDED LIST:
+                    • 119376003 | Tissue specimen (specimen)
+                    • 764445001 | Cytologic Material (substance)
+                    • 371783005 | Human tissue for identification (specimen)
+                    • 309051001 | Body fluid specimen (specimen)
+                    • 432825001 | Body secretion specimen (specimen)
+                </Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.0: -
+                    MSMdad v.0.1.1: -
+                    MSMdad v.0.1.2: value specification, MetaFleX Type
+                    MSMdad v.1.0.0: none
+                    MSMdad v.2.0.0: none
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Fixation Type (3.2.3) -->
+        <ATTRIBUTE>
+            <Attribute_ID>3.2.3</Attribute_ID>
+            <Name>Fixation Type</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>fixation_type</Machine_Readable_Field_Name>
+            <Class>Technical</Class>
+            <CMMS_Entity>Specimen</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>The type of fixation used in the process of the creation of the Specimen.</Description>
+            <Explanation>-</Explanation>
+            <METAFLEX>CodeAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>Allowed for clinical; not allowed for non-clinical</NA>
+                <NA_Value>'nil'</NA_Value>
+                <Data_Type>CODE ATTRIBUTE</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>
+                    Schema:
+                    • SNOMED CT ‘Tissue fixative (substance)’ Concept and children
+
+                    In cases where the fixation is not included in the list of SNOMED CT terms the submitter
+                    is allowed to state their own fixation type, however, mark it as ‘other’ (by the means of
+                    the CodeAttributeType: Scheme == 'Other').
+                </Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.0: -
+                    MSMdad v.0.1.1: -
+                    MSMdad v.0.1.2: value specification, MetaFleX Type, N/A value
+                    MSMdad v.1.0.0: none
+                    MSMdad v.2.0.0: none
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Age at Extraction (3.2.4) -->
+        <ATTRIBUTE>
+            <Attribute_ID>3.2.4</Attribute_ID>
+            <Name>Age at Extraction</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>age_at_extraction</Machine_Readable_Field_Name>
+            <Class>Technical</Class>
+            <CMMS_Entity>Specimen</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>The age of the Biological Being at the time point of extraction of the Specimen.</Description>
+            <Explanation>
+                Can be stratified (or even left empty) if needed to comply with GDPR anonymization
+                requirements.
+            </Explanation>
+            <METAFLEX>SetAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>Allowed for clinical; not allowed for non-clinical</NA>
+                <NA_Value>'nil'</NA_Value>
+                <Data_Type>SET ATTRIBUTE</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>
+                    To allow stratified ages, the Age of Extraction is stated by means of a time interval. The
+                    interval contains two child attributes: ATTRIBUTE ID 3.2.4.1: Interval Start and
+                    ATTRIBUTE ID 3.2.4.2: Interval Length. Both the start of the interval and the length of the
+                    interval are stated in terms of the ISO-8601 Standard (Duration).
+                    The interval described by means of 'interval start' and 'interval length' is defined as a left
+                    closed and right open interval (i.e. [start, end[).
+                    
+                    Example Age at Extraction - stratified by 10 years: The interval [50, 60[ must be encoded
+                    as follows:
+                    • interval start: P50Y,
+                    • interval length: P10Y
+                    
+                    If an explicit age without stratification should be encoded (i.e. 50) the interval length
+                    must be stated as 'PT0S'.
+                    
+                    Example - Age at Extraction 50 years: The interval must be encoded as follows:
+                    • interval start: P50Y,
+                    • interval length: PT0S
+                </Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.0: -
+                    MSMdad v.0.1.1: -
+                    MSMdad v.0.1.2: value specification, MetaFleX Type, introducing child attributes, N/A value
+                    MSMdad v.1.0.0: none
+                    MSMdad v.2.0.0: none
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Interval Start (3.2.4.1) -->
+        <ATTRIBUTE>
+            <Attribute_ID>3.2.4.1</Attribute_ID>
+            <Name>Interval Start</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>interval_start</Machine_Readable_Field_Name>
+            <Class>Technical</Class>
+            <CMMS_Entity>Specimen</CMMS_Entity>
+            <Parent_Attribute>3.2.4: Age at Extraction</Parent_Attribute>
+            <Description>
+                The start of the time interval of the age of the Biological Being at the time point of the
+                extraction of the Specimen
+            </Description>
+            <Explanation>-</Explanation>
+            <METAFLEX>StringAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>All units allowed by the ISO standard can be used.</Unit>
+                <Comment>
+                    Only mandatory if ATTRIBUTE ID 3.2.4 Age at Extraction is not N/A
+                    STANDARD: ISO-8601 Standard (Duration)
+                </Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.2: introduced
+                    MSMdad v.1.0.0: none
+                    MSMdad v.2.0.0: none
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Interval Length (3.2.4.2) -->
+        <ATTRIBUTE>
+            <Attribute_ID>3.2.4.2</Attribute_ID>
+            <Name>Interval Length</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>interval_length</Machine_Readable_Field_Name>
+            <Class>Technical</Class>
+            <CMMS_Entity>Specimen</CMMS_Entity>
+            <Parent_Attribute>3.2.4: Age at Extraction</Parent_Attribute>
+            <Description>
+                The length of the time interval of the age of the Biological Being at the time point of the
+                extraction of the Specimen
+            </Description>
+            <Explanation>-</Explanation>
+            <METAFLEX>StringAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>All units allowed by the ISO standard can be used.</Unit>
+                <Comment>
+                    Only mandatory if ATTRIBUTE ID 3.2.4 Age at Extraction is not N/A
+                    STANDARD: ISO-8601 Standard (Duration)
+                </Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.2: introduced
+                    MSMdad v.1.0.0: none
+                    MSMdad v.2.0.0: none
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Anatomical Site (3.3.1) -->
+        <ATTRIBUTE>
+            <Attribute_ID>3.3.1</Attribute_ID>
+            <Name>Anatomical Site</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>anatomical_site</Machine_Readable_Field_Name>
+            <Class>Biological</Class>
+            <CMMS_Entity>Specimen</CMMS_Entity>
+            <Parent_Attribute>3.3.2: Anatomical Site List (if present)</Parent_Attribute>
+            <Description>
+                The anatomical site (here considered on an organ level, or similar concepts such as
+                retroperitoneum if no organ is available) the Specimen originated from.
+            </Description>
+            <Explanation>
+                A Specimen should originate from one specific anatomical site. In case tissue from
+                different anatomical sites were derived during one extraction, a separate specimen
+                should be created for each individual anatomical site. In cases where this is not possible
+                one can use the attribute ATTRIBUTE ID 3.3.2 Anatomical Site List. However, this should
+                be avoided if possible.
+            </Explanation>
+            <METAFLEX>CodeAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>Allowed for clinical; not allowed for non-clinical</NA>
+                <NA_Value>'nil'</NA_Value>
+                <Data_Type>CODE ATTRIBUTE</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>
+                    SCHEMA:
+                    • SNOMED CT ‘Body structure (body structure)’ Concept and children.
+                </Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.0: -
+                    MSMdad v.0.1.1: -
+                    MSMdad v.0.1.2: value specification, MetaFleX Type, N/A Value
+                    MSMdad v.1.0.0: none
+                    MSMdad v.2.0.0: none
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Anatomical Site List (3.3.2) -->
+        <ATTRIBUTE>
+            <Attribute_ID>3.3.2</Attribute_ID>
+            <Name>Anatomical Site List</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>anatomical_site_list</Machine_Readable_Field_Name>
+            <Class>Biological</Class>
+            <CMMS_Entity>Specimen</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>
+                A list of anatomical sites (here considered on an organ level, or similar concepts such as
+                retroperitoneum if no organ is available) the Specimen originated from. This attribute
+                contains a set of attributes of ATTRIBUTE ID 3.3.1: Anatomical Site.
+            </Description>
+            <Explanation>
+                This attribute should only be used if specimens cannot be split on an organ level (i.e. in
+                situations where this information is only present on a case level without any mapping
+                between anatomical sites and subsequent blocks).
+            </Explanation>
+            <METAFLEX>SetAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>allowed</NA>
+                <NA_Value>'nil'</NA_Value>
+                <Data_Type>SET ATTRIBUTE</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>-</Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>
+                    MSMdad v.0.1.0: -
+                    MSMdad v.0.1.1: -
+                    MSMdad v.0.1.2: value specification, MetaFleX Type
+                    MSMdad v.1.0.0: none
+                    MSMdad v.2.0.0: none
+                </Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+    </Attributes>
+</Entity>

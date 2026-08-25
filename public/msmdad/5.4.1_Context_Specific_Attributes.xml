@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- 
+Currently two contexts have been defined within MSMdad: Clinical and Non-Clinical. 
+This subchapter lists all attributes that are exclusively mandatory for the two contexts:
+-->
+<Entity id="5.4.1" name="Context Specific Attributes">
+    <Number>5.4.1</Number>
+    <Name>Context Specific Attributes</Name>
+    <Contexts>
+        <Context name="Clinical">
+            <Entity name="Dataset">
+                <Attribute>
+                    <Name>Dataset Short Name</Name>
+                    <Attribute_ID>1.1.7</Attribute_ID>
+                </Attribute>
+            </Entity>
+            <Entity name="Case">
+                <Attribute>
+                    <Name>Case ID</Name>
+                    <Attribute_ID>2.1.1</Attribute_ID>
+                </Attribute>
+            </Entity>
+            <Entity name="Specimen">
+                <Attribute>
+                    <Name>Part of Case</Name>
+                    <Attribute_ID>3.1.3</Attribute_ID>
+                </Attribute>
+            </Entity>
+        </Context>
+        <Context name="Non-Clinical">
+            <Entity name="Dataset">
+                <Attribute>
+                    <Name>Tox Study Duration</Name>
+                    <Attribute_ID>1.2.1</Attribute_ID>
+                </Attribute>
+            </Entity>
+            <Entity name="Biological Being">
+                <Attribute>
+                    <Name>Termination Status</Name>
+                    <Attribute_ID>2.2.14</Attribute_ID>
+                </Attribute>
+                <Attribute>
+                    <Name>Animal Strain</Name>
+                    <Attribute_ID>2.3.4</Attribute_ID>
+                </Attribute>
+                <Attribute>
+                    <Name>Control Terminology</Name>
+                    <Attribute_ID>2.3.5</Attribute_ID>
+                </Attribute>
+            </Entity>
+        </Context>
+    </Contexts>
+</Entity>

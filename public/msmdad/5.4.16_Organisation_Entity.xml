@@ -1,0 +1,169 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Entity id="5.4.16" name="Organisation Entity">
+    <Number>5.4.16</Number>
+    <Name>Organisation Entity</Name>
+    <Attributes>
+        <!-- Organisation ID (16.1.1) -->
+        <ATTRIBUTE>
+            <Attribute_ID>16.1.1</Attribute_ID>
+            <Name>Organisation ID</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>organisation_id</Machine_Readable_Field_Name>
+            <Class>Housekeeping</Class>
+            <CMMS_Entity>Organisation</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>A unique identifier of the Organisation Entity.</Description>
+            <Explanation>Must be unique for every Dataset. – no decision on this yet, Jarno to discuss this with WP2</Explanation>
+            <METAFLEX>ObjectType Attribute “alias” AND/OR “accession”</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>
+                    CAVE:
+                    During dataset creation the submitter must use the Object Attribute “alias” to state a
+                    unique identifier, however, during the submission process that repository automatically
+                    generates a unique accession ID for each submitted CMMS Entity. This accession ID will be
+                    automatically injected into the XML file using the xs:attribute “accession” by the repository
+                    during the upload process.
+                    Once a accession ID has been generated all references to a given CMMS Entity must use the
+                    xs:attribute “accession” and not the xs:attribute “alias”.
+                </Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>MSMdad v.2.0.0: Introduced</Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Organisation Name (16.1.2) -->
+        <ATTRIBUTE>
+            <Attribute_ID>16.1.2</Attribute_ID>
+            <Name>Organisation Name</Name>
+            <Inclusion_Status_Context>general [everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>NAME</Machine_Readable_Field_Name>
+            <Class>Housekeeping</Class>
+            <CMMS_Entity>Organisation</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>The name of the organization as defined in the EU Funding and Tenders Portal</Description>
+            <Explanation>
+                Used to document the submitter organisation. Might be used for reporting as well.
+                Link to the portal: https://ec.europa.eu/info/fundingtenders/opportunities/portal/screen/how-to-participate/participant-register
+            </Explanation>
+            <METAFLEX>xs:string</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>-</Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>MSMdad v.2.0.0: Introduced</Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Organisation PIC Code (16.1.3) -->
+        <ATTRIBUTE>
+            <Attribute_ID>16.1.3</Attribute_ID>
+            <Name>Organisation PIC Code</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>organisation_pic_code</Machine_Readable_Field_Name>
+            <Class>Housekeeping</Class>
+            <CMMS_Entity>Organisation</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>
+                The 9-digit Participant Identification Code (PIC) of the submitting organization as
+                defined in the EU Funding and Tenders Portal
+            </Description>
+            <Explanation>
+                Used to map dataset into organisation. More robust than the organisation name. This
+                code is available in EU portal.
+                (Link to the portal: https://ec.europa.eu/info/fundingtenders/opportunities/portal/screen/how-to-participate/participant-register)
+            </Explanation>
+            <METAFLEX>xs:int</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>-</Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>MSMdad v.2.0.0: Introduced</Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Datamanager Perun Group (16.1.4) -->
+        <ATTRIBUTE>
+            <Attribute_ID>16.1.4</Attribute_ID>
+            <Name>Datamanager Perun Group</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>datamanager_perun_group</Machine_Readable_Field_Name>
+            <Class>Housekeeping</Class>
+            <CMMS_Entity>Organisation</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>
+                A Perun group UUID identifying the group, which contains persons who are eligible to
+                administrate this dataset in the Bigpicture repository
+            </Description>
+            <Explanation>
+                Perun group is created in advance by the Organisation’s group administrator. The ID is
+                not a human readable name.
+            </Explanation>
+            <METAFLEX>xs:string</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>-</Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>MSMdad v.2.0.0: Introduced</Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Dataset REF (16.1.5) -->
+        <ATTRIBUTE>
+            <Attribute_ID>16.1.5</Attribute_ID>
+            <Name>Dataset REF</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>DATASET_REF</Machine_Readable_Field_Name>
+            <Class>Housekeeping</Class>
+            <CMMS_Entity>Organisation</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>The ID of the Dataset the Organisation entity belongs to.</Description>
+            <Explanation>-</Explanation>
+            <METAFLEX>ReferenceType</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>
+                    CAVEAT:
+                    During dataset creation the xs:attribute “alias” must be used to reference a given CMMS
+                    Entity if the given CMMS Entity has not received an accession ID by the repository yet
+                    (I.e. Non-Complementary Datasets). However, during the submission process the
+                    repository will assign unique accession IDs to every CMMS Entity and internal references
+                    will be updated using the newly generated accession IDs by injecting them into the XML
+                    files.
+                    Once an accession ID has been assigned to a given CMMS Entity the xs:attribute
+                    “accession” must be used to reference the given CMMS Entity. This especially relates to
+                    Complementary Datasets, where only the xs:attribute “accession” must be used (also
+                    during data set creation) when an accession ID exists for a given CMMS Entity.
+                </Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>MSMdad v.2.0.0: Introduced</Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+    </Attributes>
+</Entity>

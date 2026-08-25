@@ -1,0 +1,1665 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Entity id="5.4.14" name="Landing page Entity">
+    <Number>5.4.14</Number>
+    <Name>Landing page Entity</Name>
+    <Attributes>
+        <!-- Landing Page ID (17.1.1) -->
+        <ATTRIBUTE>
+            <Attribute_ID>17.1.1</Attribute_ID>
+            <Name>Landing Page ID</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>landing_page_id</Machine_Readable_Field_Name>
+            <Class>Housekeeping</Class>
+            <CMMS_Entity>Landing page</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>A unique identifier of the Landing page entity.</Description>
+            <Explanation>The Landing Page ID information will be stored as backend reference information and will not be visible on the public Landing page.</Explanation>
+            <METAFLEX>ObjectType Attribute “alias” AND/OR “accession”</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>
+                    CAVEAT:
+                    During dataset creation the submitter must use the Object Attribute “alias” to state a unique identifier, however, during the submission process that repository automatically
+                    generates a unique accession ID for each submitted CMMS Entity. This accession ID will be automatically injected into the XML file using the xs:attribute “accession” by the repository during the upload process.
+                    Once a accession ID has been generated all references to a given CMMS Entity must use the xs:attribute “accession” and not the xs:attribute “alias”.
+                </Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>MSMdad v.2.0.0: introduced</Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Dataset Ref (17.1.2) -->
+        <ATTRIBUTE>
+            <Attribute_ID>17.1.2</Attribute_ID>
+            <Name>Dataset Ref</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>DATASET_REF</Machine_Readable_Field_Name>
+            <Class>Housekeeping</Class>
+            <CMMS_Entity>Landing page</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>The unique ID of the Dataset the Landing page belongs to.</Description>
+            <Explanation>The Dataset Ref will be stored as backend reference information and will not be visible on the public Landing page.</Explanation>
+            <METAFLEX>ReferenceType</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>
+                    CAVEAT:
+                    During dataset creation the xs:attribute “alias” must be used to reference a given CMMS
+                    Entity if the given CMMS Entity has not received an accession ID by the repository yet
+                    (I.e. Non-Complementary Datasets). However, during the submission process the
+                    repository will assign unique accession IDs to every CMMS Entity and internal references
+                    will be updated using the newly generated accession IDs by injecting them into the XML
+                    files.
+                    Once an accession ID has been assigned to a given CMMS Entity the xs:attribute
+                    “accession” must be used to reference the given CMMS Entity. This especially relates to
+                    Complementary Datasets, where only the xs:attribute “accession” must be used (also
+                    during data set creation) when an accession ID exists for a given CMMS Entity.
+                </Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>MSMdad v.2.0.0: introduced</Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Header (17.1.3) -->
+        <ATTRIBUTE>
+            <Attribute_ID>17.1.3</Attribute_ID>
+            <Name>Header</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>header</Machine_Readable_Field_Name>
+            <Class>Housekeeping</Class>
+            <CMMS_Entity>Landing page</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>A unique name of the dataset placed as a header of the landing page.</Description>
+            <Explanation>The name is manually created by the data submitter.</Explanation>
+            <METAFLEX>StringAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>-</Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>MSMdad v.2.0.0: introduced</Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- DOI (17.1.4) -->
+        <ATTRIBUTE>
+            <Attribute_ID>17.1.4</Attribute_ID>
+            <Name>DOI</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>doi</Machine_Readable_Field_Name>
+            <Class>Housekeeping</Class>
+            <CMMS_Entity>Landing page</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>A unique digital object identifier (DOI). The DOI will be displayed in the header of the landing page.</Description>
+            <Explanation>
+                This field is not filled manually by the submitter.
+                If a data cite XML is submitted as part of the submission, the repository calls the data cite
+                service which returns a DOI, and the repository then fills this field in the landing page.
+                If no data cite XML is submitted, no DOI will be generated.
+                Note: If the submitter does apply for a DOI, this information will be visible to the public
+                on the landing page. Currently there is no option planned which would allow for having a
+                DOI, but not having it shown on the landing page.
+            </Explanation>
+            <METAFLEX>StringAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>allowed</NA>
+                <NA_Value>‘nil’</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>-</Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>MSMdad v.2.0.0: introduced</Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Dataset Name (17.1.5) -->
+        <ATTRIBUTE>
+            <Attribute_ID>17.1.5</Attribute_ID>
+            <Name>Dataset Name</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>dataset_name</Machine_Readable_Field_Name>
+            <Class>Housekeeping</Class>
+            <CMMS_Entity>Landing page</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>The name of the dataset (same as "ATTRIBUTE ID 17.1.3: Header" and “ATTRIBUTE ID 1.1.6: Dataset Title”).</Description>
+            <Explanation>Must be the same as "ATTRIBUTE ID 17.1.3: Header" and “ATTRIBUTE ID 1.1.6: Dataset Title”.</Explanation>
+            <METAFLEX>StringAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>-</Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>MSMdad v.2.0.0: introduced</Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Dataset Short Name (17.1.6) -->
+        <ATTRIBUTE>
+            <Attribute_ID>17.1.6</Attribute_ID>
+            <Name>Dataset Short Name</Name>
+            <Inclusion_Status_Context>general [everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>dataset_short_name</Machine_Readable_Field_Name>
+            <Class>Housekeeping</Class>
+            <CMMS_Entity>Landing page</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>Short name of the dataset (same as ATTRIBUTE ID 1.1.7: Dataset Short Name).</Description>
+            <Explanation>
+                The name is manually created by the data submitter must be the same as ATTRIBUTE ID 1.1.7: Dataset Short Name.
+                We encourage that the short name should not be longer than 8 – 15 characters, and that it should either be memorable or systematic.
+            </Explanation>
+            <METAFLEX>StringAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>The length of the short name is restricted to 25 characters.</Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>MSMdad v.2.0.0: introduced</Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Dataset Description (17.1.7) -->
+        <ATTRIBUTE>
+            <Attribute_ID>17.1.7</Attribute_ID>
+            <Name>Dataset Description</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>dataset_description</Machine_Readable_Field_Name>
+            <Class>Housekeeping</Class>
+            <CMMS_Entity>Landing page</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>
+                A free text description of the Dataset including additional information necessary to fully
+                understand the given Dataset (same as “ATTRIBUTE ID 1.1.2: Description”).
+            </Description>
+            <Explanation>
+                A free text abstract. The dataset description is manually created by the data submitter.
+                Must be the same as “ATTRIBUTE ID 1.1.2: Description”.
+            </Explanation>
+            <METAFLEX>StringAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>The text must have a maximum length of 250 words.</Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>MSMdad v.2.0.0: introduced</Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Keywords (17.1.8) -->
+        <ATTRIBUTE>
+            <Attribute_ID>17.1.8</Attribute_ID>
+            <Name>Keywords</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>keywords</Machine_Readable_Field_Name>
+            <Class>Housekeeping</Class>
+            <CMMS_Entity>Landing page</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>Container for zero or more keywords.</Description>
+            <Explanation>
+                Max 10 free text keywords related to the dataset making the dataset more searchable.
+                The keywords are manually created by the data submitter. Keywords and phrases can be
+                considered as the concepts and topics that define a dataset.
+            </Explanation>
+            <METAFLEX>SetAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>SET_ATTRIBUTE</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>-</Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>MSMdad v.2.0.0: introduced</Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Keyword (17.1.8.1) -->
+        <ATTRIBUTE>
+            <Attribute_ID>17.1.8.1</Attribute_ID>
+            <Name>Keyword</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>keyword</Machine_Readable_Field_Name>
+            <Class>Housekeeping</Class>
+            <CMMS_Entity>Landing page</CMMS_Entity>
+            <Parent_Attribute>17.1.8: Keyword</Parent_Attribute>
+            <Description>A keyword.</Description>
+            <Explanation>-</Explanation>
+            <METAFLEX>StringAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>-</Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>MSMdad v.2.0.0: introduced</Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Sample Image Files (17.1.9) -->
+        <ATTRIBUTE>
+            <Attribute_ID>17.1.9</Attribute_ID>
+            <Name>Sample Image Files</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>SAMPLE_IMAGE_FILES</Machine_Readable_Field_Name>
+            <Class>Housekeeping</Class>
+            <CMMS_Entity>Landing page</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>Container for zero or more sample images.</Description>
+            <Explanation>Max 5 sample images, from a specific zoom level with reduced image quality, with the purpose to give a visual description of the dataset. Note that these sample images can be zoomed in and downloaded without any authentication. Sample images should be JPEG or PNG and the size of the images should not be over 2000px x 2000px.</Explanation>
+            <METAFLEX>SampleFilesType</METAFLEX>
+            <Value_Specification>
+                <NA>allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>SET_ATTRIBUTE</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>-</Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>MSMdad v.2.0.0: introduced</Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Sample Image (17.1.9.1) -->
+        <ATTRIBUTE>
+            <Attribute_ID>17.1.9.1</Attribute_ID>
+            <Name>Sample Image</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>sample_image</Machine_Readable_Field_Name>
+            <Class>Housekeeping</Class>
+            <CMMS_Entity>Landing page</CMMS_Entity>
+            <Parent_Attribute>17.1.9 Sample Images</Parent_Attribute>
+            <Description>Path to sample image.</Description>
+            <Explanation>See Sample images.</Explanation>
+            <METAFLEX>FileType</METAFLEX>
+            <Value_Specification>
+                <NA>allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>The sample image must be in the format of JPEG or PNG and should not be over 2000px x 2000px.</Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>MSMdad v.2.0.0: introduced</Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Animal Species (17.1.10) -->
+        <ATTRIBUTE>
+            <Attribute_ID>17.1.10</Attribute_ID>
+            <Name>Animal Species</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>animal_species</Machine_Readable_Field_Name>
+            <Class>Housekeeping</Class>
+            <CMMS_Entity>Landing page</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>Container for zero or more animal species.</Description>
+            <Explanation>
+                Species of the biological beings in the dataset i.e. Homo Sapiens, Mouse, Zebra Fish.
+                The following Schema must be used if applicable:
+                For Clinical: SNOMED CT Organism (organism) concept and children
+                For Non-Clinical: CDISC/SEND (TS SPECIES)
+            </Explanation>
+            <METAFLEX>SetAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>SET_ATTRIBUTE</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>-</Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>MSMdad v.2.0.0: introduced</Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Animal Species (17.1.10.1) -->
+        <ATTRIBUTE>
+            <Attribute_ID>17.1.10.1</Attribute_ID>
+            <Name>Animal Species</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>animal_species</Machine_Readable_Field_Name>
+            <Class>Housekeeping</Class>
+            <CMMS_Entity>Landing page</CMMS_Entity>
+            <Parent_Attribute>17.1.10: Animal Species</Parent_Attribute>
+            <Description>One animal species in the dataset.</Description>
+            <Explanation>-</Explanation>
+            <METAFLEX>StringAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>
+                    Schema:
+                    For Clinical: SNOMED CT Organism (organism) concept and children.
+                    For Non-Clinical: CDISC/SEND (TS SPECIES)
+                </Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>MSMdad v.2.0.0: introduced</Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Anatomical Sites (17.1.11) -->
+        <ATTRIBUTE>
+            <Attribute_ID>17.1.11</Attribute_ID>
+            <Name>Anatomical Sites</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>anatomical_sites</Machine_Readable_Field_Name>
+            <Class>Housekeeping</Class>
+            <CMMS_Entity>Landing page</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>Container for zero or more anatomical sites.</Description>
+            <Explanation>
+                The anatomical site the specimens in the dataset originated from. Preferably organ level
+                if applicable together with organ code based on an international coding scheme.
+                Otherwise, area specification together with the attribute FIELD ID 3.3.2 Anatomical Site
+                List. Use SNOMED CT or CDISC/SEND denominations if applicable.
+            </Explanation>
+            <METAFLEX>SetAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>SET_ATTRIBUTE</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>-</Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>MSMdad v.2.0.0: introduced</Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Anatomical Site (17.1.11.1) -->
+        <ATTRIBUTE>
+            <Attribute_ID>17.1.11.1</Attribute_ID>
+            <Name>Anatomical Site</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>anatomical_site</Machine_Readable_Field_Name>
+            <Class>Housekeeping</Class>
+            <CMMS_Entity>Landing page</CMMS_Entity>
+            <Parent_Attribute>17.1.11: Anatomical Sites</Parent_Attribute>
+            <Description>Anatomical site in the dataset.</Description>
+            <Explanation>-</Explanation>
+            <METAFLEX>StringAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>
+                    Schema:
+                    • For Clinical: SNOMED CT ‘Body structure (body structure)’ Concept and children.
+                </Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>MSMdad v.2.0.0: introduced</Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Age At Extraction (17.1.12) -->
+        <ATTRIBUTE>
+            <Attribute_ID>17.1.12</Attribute_ID>
+            <Name>Age At Extraction</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>age_at_extraction</Machine_Readable_Field_Name>
+            <Class>Housekeeping</Class>
+            <CMMS_Entity>Landing page</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>The range of age of extractions for Biological Beings in the dataset.</Description>
+            <Explanation>The age range of the Biological Beings in the dataset at the time point of extraction of their Specimens.</Explanation>
+            <METAFLEX>SetAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>SET ATTRIBUTE</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>-</Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>MSMdad v.2.0.0: introduced</Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Interval Start (17.1.12.1) -->
+        <ATTRIBUTE>
+            <Attribute_ID>17.1.12.1</Attribute_ID>
+            <Name>Interval Start</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>interval_start</Machine_Readable_Field_Name>
+            <Class>Housekeeping</Class>
+            <CMMS_Entity>Landing page</CMMS_Entity>
+            <Parent_Attribute>17.1.12: Age at Extraction</Parent_Attribute>
+            <Description>The start of the time interval of the age range of Biological Beings at the time point of the extraction of their related Specimens.</Description>
+            <Explanation>-</Explanation>
+            <METAFLEX>StringAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>All units allowed by the ISO standard can be used.</Unit>
+                <Comment>
+                    Only mandatory if ATTRIBUTE ID 3.2.4 Age at Extraction is not N/A
+                    STANDARD: ISO-8601 Standard (Duration)
+                </Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>MSMdad v.2.0.0: introduced</Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Interval Length (17.1.12.2) -->
+        <ATTRIBUTE>
+            <Attribute_ID>17.1.12.2</Attribute_ID>
+            <Name>Interval Length</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>interval_length</Machine_Readable_Field_Name>
+            <Class>Housekeeping</Class>
+            <CMMS_Entity>Landing page</CMMS_Entity>
+            <Parent_Attribute>17.1.12: Age at Extraction</Parent_Attribute>
+            <Description>The length of the time interval of the age range of Biological Beings at the time point of the extraction of their related Specimens.</Description>
+            <Explanation>-</Explanation>
+            <METAFLEX>StringAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>All units allowed by the ISO standard can be used.</Unit>
+                <Comment>
+                    Only mandatory if ATTRIBUTE ID 3.2.4 Age at Extraction is not N/A
+                    STANDARD: ISO-8601 Standard (Duration)
+                </Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>MSMdad v.2.0.0: introduced</Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Extraction Methods (17.1.13) -->
+        <ATTRIBUTE>
+            <Attribute_ID>17.1.13</Attribute_ID>
+            <Name>Extraction Methods</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>extraction_methods</Machine_Readable_Field_Name>
+            <Class>Housekeeping</Class>
+            <CMMS_Entity>Landing page</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>Container for zero or more extraction methods.</Description>
+            <Explanation>The method of extraction (e.g. biopsy, surgical extraction) of the specimens in the dataset. SNOMED CT denomination must be used if applicable.</Explanation>
+            <METAFLEX>SetAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>SET_ATTRIBUTE</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>-</Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>MSMdad v.2.0.0: introduced</Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Extraction Method (17.1.13.1) -->
+        <ATTRIBUTE>
+            <Attribute_ID>17.1.13.1</Attribute_ID>
+            <Name>Extraction Method</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>extraction_method</Machine_Readable_Field_Name>
+            <Class>Housekeeping</Class>
+            <CMMS_Entity>Landing page</CMMS_Entity>
+            <Parent_Attribute>17.1.13: Extraction Methods</Parent_Attribute>
+            <Description>Extraction method in the dataset.</Description>
+            <Explanation>-</Explanation>
+            <METAFLEX>StringAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>
+                    Schema:
+                    • SNOMED CT ‘Removal (procedure)’ Concept and children
+                    • SNOMED CT ‘Autopsy pathology procedure AND/OR service (procedure)’ Concept and children
+                    RECOMMENDED LIST:
+                    • 86273004 | Biopsy (procedure)
+                    • 128304007 | Surgical extraction (procedure)
+                    • 29240004 | Autopsy examination (procedure) / synm. Necropsy
+                </Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>MSMdad v.2.0.0: introduced</Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Specimen Types (17.1.14) -->
+        <ATTRIBUTE>
+            <Attribute_ID>17.1.14</Attribute_ID>
+            <Name>Specimen Types</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>specimen_types</Machine_Readable_Field_Name>
+            <Class>Housekeeping</Class>
+            <CMMS_Entity>Landing page</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>Container for zero or more specimen types in the dataset.</Description>
+            <Explanation>The types of the specimens (e.g. histology, cytology etc.) in the dataset. SNOMED CT denomination must be used.</Explanation>
+            <METAFLEX>SetAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>SET_ATTRIBUTE</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>-</Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>MSMdad v.2.0.0: introduced</Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Specimen Type (17.1.14.1) -->
+        <ATTRIBUTE>
+            <Attribute_ID>17.1.14.1</Attribute_ID>
+            <Name>Specimen Type</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>specimen_type</Machine_Readable_Field_Name>
+            <Class>Housekeeping</Class>
+            <CMMS_Entity>Landing page</CMMS_Entity>
+            <Parent_Attribute>17.1.14: Specimen Types</Parent_Attribute>
+            <Description>Specimen type in the dataset.</Description>
+            <Explanation>-</Explanation>
+            <METAFLEX>StringAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>
+                    Schema:
+                    • SNOMED CT ‘Body substance specimen (specimen)’
+                    RECOMMENDED LIST:
+                    • 119376003 |Tissue specimen (specimen)
+                    • 764445001 | Cytologic Material (substance)
+                    • 371783005| Human tissue for identification (specimen)
+                    • 309051001 | Body fluid specimen (specimen)
+                    • 432825001 | Body secretion specimen (specimen)
+                </Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>MSMdad v.2.0.0: introduced</Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Stainings (17.1.15) -->
+        <ATTRIBUTE>
+            <Attribute_ID>17.1.15</Attribute_ID>
+            <Name>Stainings</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>stainings</Machine_Readable_Field_Name>
+            <Class>Housekeeping</Class>
+            <CMMS_Entity>Landing page</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>Container for zero or more staining information in the dataset.</Description>
+            <Explanation>States all different stains used in the dataset. Use the name of the staining procedure that was performed to stain the slide, SNOMED CT staining method concept and free text.</Explanation>
+            <METAFLEX>SetAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>SET_ATTRIBUTE</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>-</Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>MSMdad v.2.0.0: introduced</Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Staining (17.1.15.1) -->
+        <ATTRIBUTE>
+            <Attribute_ID>17.1.15.1</Attribute_ID>
+            <Name>Staining</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>staining</Machine_Readable_Field_Name>
+            <Class>Housekeeping</Class>
+            <CMMS_Entity>Landing page</CMMS_Entity>
+            <Parent_Attribute>17.1.15: Stainings</Parent_Attribute>
+            <Description>Staining information in the dataset.</Description>
+            <Explanation>-</Explanation>
+            <METAFLEX>StringAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>
+                    For chemical stains:
+                    SCHEMA:
+                    • SNOMED CT Stain (substance) Concept and its children
+                    • OR free text if the compound is not present in SNOMED CT
+                    For single target antibodies:
+                    SCHEMA:
+                    • HUGO Gene Nomenclature Commitee (HGNC) approved symbol
+                    In cases where the target gene cannot be found a custom STRING can be entered.
+                    For multi-target antibodies:
+                    The submitter is free to state a value of their liking as a STRING (e.g. 'pan-cytokeratin', 'AE1+AE3')
+                </Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>MSMdad v.2.0.0: introduced</Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Medical Diagnoses (17.1.16) -->
+        <ATTRIBUTE>
+            <Attribute_ID>17.1.16</Attribute_ID>
+            <Name>Medical Diagnoses</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>medical_diagnoses</Machine_Readable_Field_Name>
+            <Class>Housekeeping</Class>
+            <CMMS_Entity>Landing page</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>Container for zero or more medical diagnosis in the dataset.</Description>
+            <Explanation>Medical diagnoses included in the dataset specified on a specimen correlated to a clinical disease, described at a general level.</Explanation>
+            <METAFLEX>SetAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>SET_ATTRIBUTE</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>-</Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>MSMdad v.2.0.0: introduce</Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Medical Diagnosis (17.1.16.1) -->
+        <ATTRIBUTE>
+            <Attribute_ID>17.1.16.1</Attribute_ID>
+            <Name>Medical Diagnosis</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>medical_diagnosis</Machine_Readable_Field_Name>
+            <Class>Housekeeping</Class>
+            <CMMS_Entity>Landing page</CMMS_Entity>
+            <Parent_Attribute>17.1.16: Medical Diagnoses</Parent_Attribute>
+            <Description>Medical diagnosis in the dataset.</Description>
+            <Explanation>-</Explanation>
+            <METAFLEX>StringAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>SET_ATTRIBUTE</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>
+                </Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>MSMdad v.2.0.0: introduced</Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Image Types (17.1.17) -->
+        <ATTRIBUTE>
+            <Attribute_ID>17.1.17</Attribute_ID>
+            <Name>Image Types</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>image_types</Machine_Readable_Field_Name>
+            <Class>Housekeeping</Class>
+            <CMMS_Entity>Landing page</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>Container for zero or more image types in the dataset.</Description>
+            <Explanation>The type of the Image (e.g. WSI brightfield, fluorescence, photographs, macroscopy, phase contrast etc.). Currently only one type (i.e. WSI Brightfield) has been defined. Other image types will be introduced on demand once images of a certain type should be submitted to the repository.</Explanation>
+            <METAFLEX>SetAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>SET_ATTRIBUTE</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>-</Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>MSMdad v.2.0.0: introduce</Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Image Type (17.1.17.1) -->
+        <ATTRIBUTE>
+            <Attribute_ID>17.1.17.1</Attribute_ID>
+            <Name>Image Type</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>image_type</Machine_Readable_Field_Name>
+            <Class>Housekeeping</Class>
+            <CMMS_Entity>Landing page</CMMS_Entity>
+            <Parent_Attribute>17.1.17: Image Types</Parent_Attribute>
+            <Description>Image type in the dataset.</Description>
+            <Explanation>-</Explanation>
+            <METAFLEX>StringAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>
+                    CONTROLLED VOCABULARY:
+                    • WSI Brightfield
+                </Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>MSMdad v.2.0.0: introduced</Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Image Resolutions (17.1.18) -->
+        <ATTRIBUTE>
+            <Attribute_ID>17.1.18</Attribute_ID>
+            <Name>Image Resolutions</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>image_resolutions</Machine_Readable_Field_Name>
+            <Class>Housekeeping</Class>
+            <CMMS_Entity>Landing page</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>Container for zero or more image resolutions in the dataset.</Description>
+            <Explanation>The resolution of the image in the dataset in terms of the width and height of a pixel in micrometers (W, H).</Explanation>
+            <METAFLEX>SetAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>SET_ATTRIBUTE</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>-</Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>MSMdad v.2.0.0: introduced</Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Image Resolution (17.1.18.1) -->
+        <ATTRIBUTE>
+            <Attribute_ID>17.1.18.1</Attribute_ID>
+            <Name>Image Resolution</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>image_resolution</Machine_Readable_Field_Name>
+            <Class>Housekeeping</Class>
+            <CMMS_Entity>Landing page</CMMS_Entity>
+            <Parent_Attribute>17.1.18: Image Resolutions</Parent_Attribute>
+            <Description>Image resolution, in microns per pixel, in the dataset. If not the same in x and y direction, use a representative value such as the mean.</Description>
+            <Explanation>-</Explanation>
+            <METAFLEX>NumericAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>FLOAT</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>-</Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>MSMdad v.2.0.0: introduced</Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Number of Biological Beings (17.1.19) -->
+        <ATTRIBUTE>
+            <Attribute_ID>17.1.19</Attribute_ID>
+            <Name>Number of Biological Beings</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>number_of_biological_beings</Machine_Readable_Field_Name>
+            <Class>Housekeeping</Class>
+            <CMMS_Entity>Landing page</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>The count of Biological Beings in the dataset.</Description>
+            <Explanation>The number of unique biological beings (patients/individuals/animals) included in the dataset.</Explanation>
+            <METAFLEX>NumericAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>INT</Data_Type>
+                <Unit>not applicable</Unit>
+                <Comment>-</Comment>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>MSMdad v.2.0.0: introduced</Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Number of Cases (17.1.20) -->
+        <ATTRIBUTE>
+            <Attribute_ID>17.1.20</Attribute_ID>
+            <Name>Number of Cases</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>number_of_cases</Machine_Readable_Field_Name>
+            <Class>Housekeeping</Class>
+            <CMMS_Entity>Landing page</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>The count of cases in the dataset.</Description>
+            <Explanation>Slides from a biological being are assembled in a case in a dataset. The context for a case can be an examination, a disease or a study and is defined by the data submitter.</Explanation>
+            <METAFLEX>NumericAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>INT</Data_Type>
+                <Unit>not applicable</Unit>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>MSMdad v.2.0.0: introduced</Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Number of WSIs (17.1.21) -->
+        <ATTRIBUTE>
+            <Attribute_ID>17.1.21</Attribute_ID>
+            <Name>Number of WSIs</Name>
+            <Inclusion_Status_Context>general [everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>number_of_wsis</Machine_Readable_Field_Name>
+            <Class>Housekeeping</Class>
+            <CMMS_Entity>Landing page</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>The count of whole slide images in the dataset.</Description>
+            <Explanation>Total number of whole slide images (WSI) in the dataset.</Explanation>
+            <METAFLEX>NumericAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>INT</Data_Type>
+                <Unit>not applicable</Unit>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>MSMdad v.2.0.0: introduced</Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Number of Observations (17.1.22) -->
+        <ATTRIBUTE>
+            <Attribute_ID>17.1.22</Attribute_ID>
+            <Name>Number of Observations</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>number_of_observations</Machine_Readable_Field_Name>
+            <Class>Housekeeping</Class>
+            <CMMS_Entity>Landing page</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>The count of observations in the dataset.</Description>
+            <Explanation>The number of unique study observations included in the dataset. Related to the studies in the non-clinical node.</Explanation>
+            <METAFLEX>NumericAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>INT</Data_Type>
+                <Unit>not applicable</Unit>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>MSMdad v.2.0.0: introduced</Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Number of Annotations (17.1.23) -->
+        <ATTRIBUTE>
+            <Attribute_ID>17.1.23</Attribute_ID>
+            <Name>Number of Annotations</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>number_of_annotations</Machine_Readable_Field_Name>
+            <Class>Housekeeping</Class>
+            <CMMS_Entity>Landing page</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>The count of annotations in the dataset.</Description>
+            <Explanation>The number of unique study annotations included in the dataset. Related to the studies in the non-clinical node.</Explanation>
+            <METAFLEX>NumericAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>INT</Data_Type>
+                <Unit>not applicable</Unit>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>MSMdad v.2.0.0: introduced</Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Dataset Size (17.1.24) -->
+        <ATTRIBUTE>
+            <Attribute_ID>17.1.24</Attribute_ID>
+            <Name>Dataset Size</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>dataset_size</Machine_Readable_Field_Name>
+            <Class>Housekeeping</Class>
+            <CMMS_Entity>Landing page</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>The size of the dataset in bytes.</Description>
+            <Explanation>-</Explanation>
+            <METAFLEX>NumericAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>INT</Data_Type>
+                <Unit>not applicable</Unit>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>MSMdad v.2.0.0: introduced</Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Geographical Areas (17.1.25) -->
+        <ATTRIBUTE>
+            <Attribute_ID>17.1.25</Attribute_ID>
+            <Name>Geographical Areas</Name>
+            <Inclusion_Status_Context>general [everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>geographical_areas</Machine_Readable_Field_Name>
+            <Class>Housekeeping</Class>
+            <CMMS_Entity>Landing page</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>Container for zero or more geographical areas in the dataset.</Description>
+            <Explanation>The geographical origin of the biological beings in the dataset on the level preferred: continent, country, centre name or organisation.</Explanation>
+            <METAFLEX>SetAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>SET_ATTRIBUTE</Data_Type>
+                <Unit>not applicable</Unit>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>MSMdad v.2.0.0: introduced</Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Geographical Area (17.1.25.1) -->
+        <ATTRIBUTE>
+            <Attribute_ID>17.1.25.1</Attribute_ID>
+            <Name>Geographical Area</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>geographical_area</Machine_Readable_Field_Name>
+            <Class>Housekeeping</Class>
+            <CMMS_Entity>Landing page</CMMS_Entity>
+            <Parent_Attribute>17.1.25: Geographical Areas</Parent_Attribute>
+            <Description>Geographical areas in the dataset.</Description>
+            <Explanation>-</Explanation>
+            <METAFLEX>StringAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>MSMdad v.2.0.0: introduced</Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Year of Submission (17.1.26) -->
+        <ATTRIBUTE>
+            <Attribute_ID>17.1.26</Attribute_ID>
+            <Name>Year of Submission</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>year_of_submission</Machine_Readable_Field_Name>
+            <Class>Housekeeping</Class>
+            <CMMS_Entity>Landing page</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>The year the dataset was submitted.</Description>
+            <Explanation>Year of the first submission of the dataset to the BigPicture platform.</Explanation>
+            <METAFLEX>NumericAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>INT</Data_Type>
+                <Unit>not applicable</Unit>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>MSMdad v.2.0.0: introduced</Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Dataset Version (17.1.27) -->
+        <ATTRIBUTE>
+            <Attribute_ID>17.1.27</Attribute_ID>
+            <Name>Dataset Version</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>dataset_version</Machine_Readable_Field_Name>
+            <Class>Housekeeping</Class>
+            <CMMS_Entity>Landing page</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>The version of the dataset</Description>
+            <Explanation>
+                The current version of the Dataset. As the Dataset may be updated after initial upload,
+                the version field keeps track of the version of a specific Dataset. Default 1.0.0. Uniformly
+                increasing with every update.
+            </Explanation>
+            <METAFLEX>StringAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>MSMdad v.2.0.0: introduced</Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Metadata Standard Version (17.1.28) -->
+        <ATTRIBUTE>
+            <Attribute_ID>17.1.28</Attribute_ID>
+            <Name>Metadata Standard Version</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>metadata_standard_version</Machine_Readable_Field_Name>
+            <Class>Housekeeping</Class>
+            <CMMS_Entity>Landing page</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>The version of the metadata standard used in the dataset</Description>
+            <Explanation>-</Explanation>
+            <METAFLEX>StringAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>MSMdad v.2.0.0: introduced</Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Changelog (17.1.29) -->
+        <ATTRIBUTE>
+            <Attribute_ID>17.1.29</Attribute_ID>
+            <Name>Changelog</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>changelog</Machine_Readable_Field_Name>
+            <Class>Housekeeping</Class>
+            <CMMS_Entity>Landing page</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>A set of documented changes to the dataset.</Description>
+            <Explanation>-</Explanation>
+            <METAFLEX>SetAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>SET_ATTRIBUTE</Data_Type>
+                <Unit>not applicable</Unit>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>MSMdad v.2.0.0: introduced</Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Log Entry (17.1.29.1) -->
+        <ATTRIBUTE>
+            <Attribute_ID>17.1.29.1</Attribute_ID>
+            <Name>Log Entry</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>changelog</Machine_Readable_Field_Name>
+            <Class>Housekeeping</Class>
+            <CMMS_Entity>Landing page</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>Documented change to the dataset.</Description>
+            <Explanation>Specifies major dataset updates in each version update. An expandable field of version updates.</Explanation>
+            <METAFLEX>StringAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+            </Value_Specification>
+            <Comment>The TAG must state the version of the dataset and the VALUE must state an overview of the changes.</Comment>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+            </DICOM_Specification>
+            <Change_Log>MSMdad v.2.0.0: introduced</Change_Log>
+        </ATTRIBUTE>
+        <!-- Comments (17.1.30) -->
+        <ATTRIBUTE>
+            <Attribute_ID>17.1.30</Attribute_ID>
+            <Name>Comments</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>comments</Machine_Readable_Field_Name>
+            <Class>Housekeeping</Class>
+            <CMMS_Entity>Landing page</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>Comments to the dataset. The comments are listed in a set of string attributes with a heading as attribute tag and the comment as value.</Description>
+            <Explanation>Comments regarding the dataset - Warnings, disclaimers and/or important information for the user. Heading of your choice for example "COMMENTS".</Explanation>
+            <METAFLEX>SetAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>SET_ATTRIBUTE</Data_Type>
+                <Unit>not applicable</Unit>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>MSMdad v.2.0.0: introduced</Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Comment (17.1.30.1) -->
+        <ATTRIBUTE>
+            <Attribute_ID>17.1.30.1</Attribute_ID>
+            <Name>Comment</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>comments</Machine_Readable_Field_Name>
+            <Class>Housekeeping</Class>
+            <CMMS_Entity>Landing page</CMMS_Entity>
+            <Parent_Attribute>17.1.30: Comments</Parent_Attribute>
+            <Description>Comments to the dataset. The comments are listed in a set of string attributes with a heading as attribute tag and the comment as value.</Description>
+            <Explanation>Comments regarding the dataset - Warnings, disclaimers and/or important information for the user. Heading of your choice for example "COMMENTS".</Explanation>
+            <METAFLEX>SetAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>SET_ATTRIBUTE</Data_Type>
+                <Unit>not applicable</Unit>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>MSMdad v.2.0.0: introduced</Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Center Name (17.1.31) -->
+        <ATTRIBUTE>
+            <Attribute_ID>17.1.31</Attribute_ID>
+            <Name>Center Name</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>center_name</Machine_Readable_Field_Name>
+            <Class>Housekeeping</Class>
+            <CMMS_Entity>Landing page</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>The name of the center submitting the dataset.</Description>
+            <Explanation>
+                A unique identifier of the party submitting the Dataset. Required attribute in Federated EGA.
+                Submitter information is required for ELSI issues as the submitter may not be the data controller.
+                Can be an organization. Can be an indirection body, for example for EFPIA data.
+            </Explanation>
+            <METAFLEX>StringAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>MSMdad v.2.0.0: introduced</Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Cite as (17.1.32) -->
+        <ATTRIBUTE>
+            <Attribute_ID>17.1.32</Attribute_ID>
+            <Name>Cite as</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>cite_as</Machine_Readable_Field_Name>
+            <Class>Housekeeping</Class>
+            <CMMS_Entity>Landing page</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>Formatted citations to use when citing the dataset.</Description>
+            <Explanation>How to cite the dataset according to Harvard/Vancouver/ reference system.</Explanation>
+            <METAFLEX>SetAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>SET_ATTRIBUTE</Data_Type>
+                <Unit>not applicable</Unit>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>MSMdad v.2.0.0: introduced</Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Citation (17.1.32.1) -->
+        <ATTRIBUTE>
+            <Attribute_ID>17.1.32.1</Attribute_ID>
+            <Name>Citation</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>citation</Machine_Readable_Field_Name>
+            <Class>Housekeeping</Class>
+            <CMMS_Entity>Landing page</CMMS_Entity>
+            <Parent_Attribute>17.1.32: Cite As</Parent_Attribute>
+            <Description>Formatted citation to use when citing the dataset.</Description>
+            <Explanation>-</Explanation>
+            <METAFLEX>StringAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>MSMdad v.2.0.0: introduced</Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- References (17.1.33) -->
+        <ATTRIBUTE>
+            <Attribute_ID>17.1.33</Attribute_ID>
+            <Name>References</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>references</Machine_Readable_Field_Name>
+            <Class>Housekeeping</Class>
+            <CMMS_Entity>Landing page</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>Dataset references.</Description>
+            <Explanation>Relevant published manuscripts that refer to the dataset either as a description and/or results from the dataset. Indicate which dataset version that has been used.</Explanation>
+            <METAFLEX>SetAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>SET_ATTRIBUTE</Data_Type>
+                <Unit>not applicable</Unit>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>MSMdad v.2.0.0: introduced</Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Reference (17.1.33.1) -->
+        <ATTRIBUTE>
+            <Attribute_ID>17.1.33.1</Attribute_ID>
+            <Name>Reference</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>reference</Machine_Readable_Field_Name>
+            <Class>Housekeeping</Class>
+            <CMMS_Entity>Landing page</CMMS_Entity>
+            <Parent_Attribute>17.1.33: References</Parent_Attribute>
+            <Description>Formatted citation for reference that uses the dataset.</Description>
+            <Explanation>-</Explanation>
+            <METAFLEX>StringAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+                <Change_Log>MSMdad v.2.0.0: introduced</Change_Log>
+            </DICOM_Specification>
+        </ATTRIBUTE>
+        <!-- Type of Access (17.1.35) -->
+        <ATTRIBUTE>
+            <Attribute_ID>17.1.35</Attribute_ID>
+            <Name>Type of Access</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>type_of_access</Machine_Readable_Field_Name>
+            <Class>Housekeeping</Class>
+            <CMMS_Entity>Landing Page</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>Defines whether the dataset can be accessed directly (all data) or indirectly via a Bigpicture-controlled software and the User will not see the actual Data and/or software (meaning they will remain hidden).</Description>
+            <Explanation>Must be the same as ATTRIBUTE ID 9.1.5: Type of Access of the Policy Entity. Further information about the definition of the terms Direct and Indirect Access can be looked up in the Glossary of Terms of Bigpicture: https://bigpictureeu.sharepoint.com/Lists/Glossary%20of%20Terms/AllItems.aspx</Explanation>
+            <METAFLEX>StringAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+            </Value_Specification>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+            </DICOM_Specification>
+            <Comment>
+                CONTROLLED VOCABULARY:
+                ● Direct Access
+                ● Indirect Access*
+                *Bigpicture prepares for facilitating indirect access in the future. The Policy entity reflects the agreed-upon Terms of Use template, as well as the Data Sharing Agreement.
+            </Comment>
+            <Change_Log>MSMdad v.2.0.0: Introduced</Change_Log>
+        </ATTRIBUTE>
+        <!-- REMS Access Link (17.1.36) -->
+        <ATTRIBUTE>
+            <Attribute_ID>17.1.36</Attribute_ID>
+            <Name>REMS Access Link</Name>
+            <Inclusion_Status_Context>general [everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>REMS_ACCESS_LINK</Machine_Readable_Field_Name>
+            <Class>Housekeeping</Class>
+            <CMMS_Entity>Landing page</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>URL that leads to the REMS access resource for the dataset.</Description>
+            <Explanation>This field is not filled manually by the submitter. The REMS access link will be filled in by the repository during the submission process.</Explanation>
+            <METAFLEX>xs:string</METAFLEX>
+            <Value_Specification>
+                <NA>allowed</NA>
+                <NA_Value>'nil'</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+            </Value_Specification>
+            <Comment>-</Comment>
+        </ATTRIBUTE>
+        <!-- Allowed Uses (17.5.1) -->
+        <ATTRIBUTE>
+            <Attribute_ID>17.5.1</Attribute_ID>
+            <Name>Allowed Uses</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>allowed_uses</Machine_Readable_Field_Name>
+            <Class>Legal/Ethical</Class>
+            <CMMS_Entity>Landing Page</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>Contains a set of ATTRIBUTE ID 17.5.1: Allowed Use attributes.</Description>
+            <Explanation>Must be the same as ATTRIBUTE ID 9.5.4: Allowed Uses of the Policy Entity.</Explanation>
+            <METAFLEX>SetAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>SET_ATTRIBUTE</Data_Type>
+                <Unit>not applicable</Unit>
+            </Value_Specification>
+            <Comment>-</Comment>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+            </DICOM_Specification>
+            <Change_Log>MSMdad v.2.0.0: Introduced</Change_Log>
+        </ATTRIBUTE>
+        <!-- Allowed Use (17.5.1.1) -->
+        <ATTRIBUTE>
+            <Attribute_ID>17.5.1.1</Attribute_ID>
+            <Name>Allowed Use</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>allowed_use</Machine_Readable_Field_Name>
+            <Class>Legal/Ethical</Class>
+            <CMMS_Entity>Landing Page</CMMS_Entity>
+            <Parent_Attribute>18.5.1: Allowed Uses</Parent_Attribute>
+            <Description>Defines for which purpose the data may be used. Multiple options allowed.</Description>
+            <Explanation>Must be the same as ATTRIBUTE ID: 9.5.4.1 Allowed Use of the Policy Entity.</Explanation>
+            <METAFLEX>StringAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+            </Value_Specification>
+            <Comment>
+                CONTROLLED VOCABULARY:
+                ● Implementation of Bigpicture Project (IMI2-945358)
+                ● Research Use
+                ● Direct Exploitation
+                
+                Please note that this attribute can only contain one of the above-mentioned terms.
+                However, multiple “Allowed Use” attributes can be present within ATTRIBUTE ID 18.5.1: Allowed Uses
+                Please refer to the Glossary of Terms of Bigpicture for more detailed information about the individual terms.
+            </Comment>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+            </DICOM_Specification>
+            <Change_Log>MSMdad v.2.0.0: Introduced</Change_Log>
+        </ATTRIBUTE>
+        <!-- Allowed Geographical Distribution (17.5.2) -->
+        <ATTRIBUTE>
+            <Attribute_ID>17.5.2</Attribute_ID>
+            <Name>Allowed Geographical Distribution</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>allowed_geographical_distribution</Machine_Readable_Field_Name>
+            <Class>Legal/Ethical</Class>
+            <CMMS_Entity>Landing Page</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>Defines where a User receiving the data may be based: in EU only, in countries with GDPR adequacy, or within the entire world</Description>
+            <Explanation>
+                List of countries with GDPR adequacy can be found following this link: https://commission.europa.eu/law/law-topic/data-protection/international-dimensiondata-protection/adequacy-decisions_en
+                Must be the same as ATTRIBUTE ID 9.5.5: Allowed Geographical Distribution of the Policy Entity.
+                Countries with GDPR adequacy includes European Union and EEA Countries, while worldwide includes both other options.
+            </Explanation>
+            <METAFLEX>StringAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+            </Value_Specification>
+            <Comment>
+                CONTROLLED VOCABULARY:
+                • European Union and EEA countries
+                • Countries with GDPR adequacy
+                • Worldwide
+            </Comment>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+            </DICOM_Specification>
+            <Change_Log>MSMdad v.2.0.0: Introduced</Change_Log>
+        </ATTRIBUTE>
+        <!-- Duration Of Use (17.5.3) -->
+        <ATTRIBUTE>
+            <Attribute_ID>17.5.3</Attribute_ID>
+            <Name>Duration Of Use</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>duration_of_use</Machine_Readable_Field_Name>
+            <Class>Legal/Ethical</Class>
+            <CMMS_Entity>Landing Page</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>Defines how long a User may access the Data: unlimited time, limited to the IMI Bigpicture term, or limited to the duration of the purpose of the data access request.</Description>
+            <Explanation>Must be the same as ATTRIBUTE ID 9.5.6: Duration of Usse of the Poolicy Entity.</Explanation>
+            <METAFLEX>StringAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>Missing</Unit>
+            </Value_Specification>
+            <Comment>
+                CONTROLLED VOCABULARY:
+                ● Unlimited time
+                ● Limited to the IMI Bigpicture project term
+                ● Limited to the duration of purpose of data access request
+            </Comment>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+            </DICOM_Specification>
+            <Change_Log>MSMdad v.2.0.0: Introduced</Change_Log>
+        </ATTRIBUTE>
+        <!-- Defined Research Question Required (17.5.4) -->
+        <ATTRIBUTE>
+            <Attribute_ID>17.5.4</Attribute_ID>
+            <Name>Defined Research Question Required</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>defined_research_question_required</Machine_Readable_Field_Name>
+            <Class>Legal/Ethical</Class>
+            <CMMS_Entity>Landing Page</CMMS_Entity>
+            <Parent_Attribute>None</Parent_Attribute>
+            <Description>Indicates if the user needs to formulate the intended purpose of the data access in the access request.</Description>
+            <Explanation>Must be the same as ATTRIBUTE ID 9.5.7: Defined Research Question Required of the Policy Entity.</Explanation>
+            <METAFLEX>StringAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+            </Value_Specification>
+            <Comment>
+                CONTROLLED VOCABULARY:
+                • True
+                • False
+            </Comment>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+            </DICOM_Specification>
+            <Change_Log>MSMdad v.2.0.0: Introduced</Change_Log>
+        </ATTRIBUTE>
+        <!-- Informed Consent Form Defined Use Restrictions (17.5.5) -->
+        <ATTRIBUTE>
+            <Attribute_ID>17.5.5</Attribute_ID>
+            <Name>Informed Consent Form Defined Use Restrictions</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>informed_consent_form_defined_use_restrictions</Machine_Readable_Field_Name>
+            <Class>Legal/Ethical</Class>
+            <CMMS_Entity>Landing Page</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>Contains a brief description of particular use restrictions defined in the Inform Consent Form, not captured in any other Policy attribute, if applicable.</Description>
+            <Explanation>Must be the same as ATTRIBUTE ID 9.5.8: Informed Consent Form Defined Use Restrictions of the Policy Entity. This must be written in free text form.</Explanation>
+            <METAFLEX>StringAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>allowed</NA>
+                <NA_Value>‘nil’</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+            </Value_Specification>
+            <Comment>-</Comment>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+            </DICOM_Specification>
+            <Change_Log>MSMdad v.2.0.0: Introduced</Change_Log>
+        </ATTRIBUTE>
+        <!-- Custom Use Restrictions (17.5.6) -->
+        <ATTRIBUTE>
+            <Attribute_ID>17.5.6</Attribute_ID>
+            <Name>Custom Use Restrictions</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>custom_use_restrictions</Machine_Readable_Field_Name>
+            <Class>Legal/Ethical</Class>
+            <CMMS_Entity>Landing Page</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>Contains a brief description of particular use restrictions not captured in any other Policy attribute, if applicable.</Description>
+            <Explanation>Must be the same as ATTRIBUTE ID 9.5.9: Custom Use Restrictions of the Policy Entity.</Explanation>
+            <METAFLEX>StringAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>allowed</NA>
+                <NA_Value>'nil'</NA_Value>
+                <Data_Type>STRING</Data_Type>
+                <Unit>not applicable</Unit>
+            </Value_Specification>
+            <Comment>-</Comment>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+            </DICOM_Specification>
+            <Change_Log>MSMdad v.2.0.0: Introduced</Change_Log>
+        </ATTRIBUTE>
+        <!-- Policy Text (17.5.7) -->
+        <ATTRIBUTE>
+            <Attribute_ID>17.5.7</Attribute_ID>
+            <Name>Policy Text</Name>
+            <Inclusion_Status_Context>general [Everyone]</Inclusion_Status_Context>
+            <Machine_Readable_Field_Name>policy_text</Machine_Readable_Field_Name>
+            <Class>Legal/Ethical</Class>
+            <CMMS_Entity>Landing page</CMMS_Entity>
+            <Parent_Attribute>-</Parent_Attribute>
+            <Description>The general terms and conditions for using Bigpicture datasets as stated in the Data Sharing Agreement.</Description>
+            <Explanation>Excerpts of the relevant paragraphs of the Data Sharing Agreement in laymen terms.</Explanation>
+            <METAFLEX>StringAttributeType</METAFLEX>
+            <Value_Specification>
+                <NA>not allowed</NA>
+                <NA_Value>not applicable</NA_Value>
+                <Data_Type>STRING_ATTRIBUTE</Data_Type>
+                <Unit>not applicable</Unit>
+            </Value_Specification>
+            <Comment>
+                The following text must be stated:
+                DISSCLAIMER:
+                The use and sharing of Bigpicture data is dictated by the Bigpicture Data Sharing Agreement. The Policy Text comprises a concise overview thereof, however, only the official and formally signed contractual documents (i.e. the Data Sharing Agreement, the Data Processing Agreement, the Consortium Agreement, and the Grant Agreement) related to Bigpicture Data Sharing and Processing have a binding value.
+                Summary of relevant clauses for Data Users
+                This document serves as an overview of the relevant clauses and sections of clauses for Data Users, and is for reference purposes only. In case of doubt about the contents of the clauses, the original text of the DSA always takes precedence over this summary. The full text of the relevant clauses is also included in this document.
+                Clause 2. [Definitions]
+                ‘Data User’ means any Beneficiary whose Employees are exercising the Access Rights to certain Data in accordance with the terms set out in this Agreement and defined by the Data Contributor in the ToU. For the avoidance of doubt, Data Users may include employees of Affiliated Entities and Linked Third Parties, Sub-Contractors, to the extent that those entities enjoy the rights and obligations under this Agreement. In next phases of the Project, Data Users will also include Slide Contributing Third Parties and finally Third Parties.
+                Clause 3. [Contribution of the Data]
+                Data Contributors and Data Users shall sign the Hosting and Processing Agreement with Hosting Beneficiaries as set forth in EXHIBIT 4.
+                Clause 5. Data Access
+                Clause 5 outlines the terms and conditions for Data Access. Beneficiaries (as potential Data Users) can request access to specific datasets by following the Terms of Use set by the Data Contributor, in line with the Consortium Agreement and data protection laws. To apply, they must submit a request through the REMS portal, providing necessary details such as the dataset, data users, employees, and the research purpose.
+                If the requesting party is in a non-European Economic Area country without an EU adequacy decision, a data transfer agreement must be signed to meet cross-border data transfer obligations, such as the Standard Contractual Clauses issued by the European Commission or comply with another compliant cross-border data transfer mechanism. A Transfer Impact Assessment may also be required.
+                Clause 6. [Obligations of the Data Users]
+                Clause 6 outlines the obligations of the Data Users. They must ensure that its Employees use the Data only for the agreed purpose, as specified in the Data Access request, and in compliance with the relevant agreements and legislation. The Data must not be processed in ways incompatible with its original purpose. The Data Contributor retains the right to use their Data for their own purposes if they are the Data Controller or have a legal right to do so.
+                Each Data User processing Data must:
+                - Comply with applicable Data Protection Legislation.
+                - Act proportionately to the research aim when acting as a Controller.
+                - Follow recognized ethical standards for scientific research.
+                - Adhere to the conditions and restrictions set by the Data Contributor in the Terms of Use.
+                Specific obligations for Data Users include:
+                - Implement guidelines and procedures to ensure Employee compliance with the DSA, ToU, and Data Protection Legislation.
+                - Ensure Employees treat all Data as confidential unless otherwise indicated and comply with data transfer rules for countries outside the EU/EEA.
+                - Ensure authorised third parties process Data only according to instructions.
+                - Access and process Data only as necessary for the Project or approved Research Use.
+                - Notify the Data Contributor of any errors in the Data or security breaches without undue delay.
+                - Accept that Data access may be interrupted or suspended for maintenance or security reasons.
+                - Accept updates to Data and remove earlier versions if reissued due to Data Subject requests.
+                - Implement security measures to protect Data downloaded from the Bigpicture Platform.
+                - Delete Data upon a justified request from the Data Contributor.
+                When accessing Personal Data:
+                - For Research Use, the Data User will be considered a Controller unless stated otherwise in EXHIBIT 2 or agreed in writing between the concerned Data Contributor and Data User in a separate agreement.
+                - For Implementation of Action, roles are outlined in EXHIBIT 2.
+                Clause 10. [Data Protection Impact Assessment (DPIA)]
+                Clause 10 outlines the obligations for Beneficiaries regarding the execution of a DPIA. Data Users must ensure they access Personal Data only if a DPIA is not required or if a DPIA has been completed and its conclusions permit the planned use. The Data Contributor or its Data Access Committee (DAC) can request the DPIA from the Data User before granting access to the data.
+                Clause 11. [Non-transferability]
+                Data Users (except where Data User is the Beneficiary which contributed the relevant Data) must ensure that neither they nor their Employees transfer or disclose the Data or any material to any third party, including other Employees, unless:
+                a) Permitted under the DSA,
+                b) A separate Data Access request has been filed and approved by the relevant Data Contributor, or
+                c) Permitted under the provisions on the rights of the Affiliated Entities, Linked Third Parties and Sub-Contractors in the Consortium Agreement and the DSA.
+                Clause 15. [Term and termination]
+                Clause 15 outlines, insofar as relevant to the Data Users, the consequences of termination or expiration of the DSA.
+                a) Upon termination or expiration of the DSA, all Beneficiaries must stop processing the relevant Data. However, if a Beneficiary started processing Data for research before termination, they can continue until completion, unless the termination is due to specific listed reasons or the withdrawal of necessary authorizations.
+                b) Access Rights to the Data will be immediately revoked for Data Users and their Employees whose participation is terminated.
+                c) All Data Users and their Employees must securely delete the Data they received via the Bigpicture Platform and remove any existing copies, unless permitted otherwise by the Data Contributor or applicable law.
+                d) Data Users must confirm the Data erasure or provide reasons for retention if requested by the Data Contributor.
+                EXHIBIT 4: Hosting and Processing Agreement
+                Agreement to be signed between Data Contributors/Data Users and Hosting Beneficiaries, whereby the Data Contributors and Data Users act as (or on behalf of) Controllers and Hosting Beneficiaries (CSC and UU) act as Processors.
+            </Comment>
+            <DICOM_Specification>
+                <NA_Value>not applicable</NA_Value>
+                <Comment>not applicable</Comment>
+            </DICOM_Specification>
+            <Change_Log>MSMdad v.2.0.0: introduced</Change_Log>
+        </ATTRIBUTE>
+    </Attributes>
+</Entity>
