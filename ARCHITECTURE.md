@@ -108,7 +108,6 @@ src/pages/
   and SlideTap's own source. If those tools change their accepted fields, this app needs a
   matching manual update — there's no automated check.
 - Schema fetches are pinned to mutable branches, not tags/commits (METAFLEX → `main`, MSMdad →
-  `initial`). Deliberate for now: MSMdad's `initial` branch hasn't been merged to `main` yet.
-  Switch to `main` once that merge happens.
+  `main`).
 
 See [KNOWN_ISSUES.md](KNOWN_ISSUES.md) for further known gaps outside this file's scope.

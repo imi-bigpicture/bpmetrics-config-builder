@@ -34,7 +34,7 @@ const SCHEMA_FILES = [
   '5.4.17_DataCite_Entity.xml',
 ];
 
-const GITHUB_RAW_BASE = 'https://raw.githubusercontent.com/imi-bigpicture/bigpicture-msmdad/initial/src';
+const GITHUB_RAW_BASE = 'https://raw.githubusercontent.com/imi-bigpicture/bigpicture-msmdad/main/src';
 const LOCAL_FALLBACK_BASE = '/msmdad';
 const CACHE_KEY_PREFIX = 'msmdad_schema_';
 const METADATA_KEY = 'msmdad_metadata';
@@ -134,7 +134,7 @@ export async function fetchAllSchemas(forceRefresh: boolean = false): Promise<Fe
   const metadata: SchemaMetadata = {
     lastFetched: new Date().toISOString(),
     sourceRepo: 'https://github.com/imi-bigpicture/bigpicture-msmdad',
-    branch: 'initial',
+    branch: 'main',
     version: '2.0.0',
     fileCount: schemas.size,
     fallbackFiles,

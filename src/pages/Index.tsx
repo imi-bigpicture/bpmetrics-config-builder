@@ -322,7 +322,7 @@ const Index = () => {
     return {
       version: 1,
       generated_at: new Date().toISOString(),
-      source_schema_repo: "https://github.com/imi-bigpicture/bigpicture-msmdad/tree/initial",
+      source_schema_repo: "https://github.com/imi-bigpicture/bigpicture-msmdad/tree/main",
       selections,
       compoundMetrics: compoundMetrics.length > 0 ? compoundMetrics : undefined,
     };
@@ -348,7 +348,7 @@ const Index = () => {
     const config = {
       version: 1,
       generated_at: new Date().toISOString(),
-      source_schema_repo: "https://github.com/imi-bigpicture/bigpicture-msmdad/tree/initial",
+      source_schema_repo: "https://github.com/imi-bigpicture/bigpicture-msmdad/tree/main",
       compoundMetrics,
     };
     const blob = new Blob([JSON.stringify(config, null, 2)], {
@@ -457,7 +457,7 @@ const Index = () => {
               </Button>
               <Button variant="outline" size="sm" asChild className="w-full sm:w-auto">
                 <a
-                  href="https://github.com/imi-bigpicture/bigpicture-msmdad/tree/initial"
+                  href="https://github.com/imi-bigpicture/bigpicture-msmdad/tree/main"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
